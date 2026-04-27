@@ -305,6 +305,8 @@ function App() {
               📞 999 555 8877
             </a>
 
+            <WeddingPhoto src="couple" alt="Dimal & Soniya" className="mb-8" />
+
             <div className="mt-8">
               <p className="text-[12px] uppercase tracking-[0.25em] text-[#888888] font-semibold mb-4">Countdown to the Ceremony</p>
               {renderCountdown()}
