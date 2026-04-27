@@ -123,17 +123,17 @@ function App() {
 
           <div className="flex justify-center items-start gap-0 mb-7">
             <div className="w-[42%] text-right pr-2">
-              <div className="font-serif text-[28px]">Dimal Joseph</div>
-              <div className="font-serif text-2xl">& Family</div>
+              <div className="font-serif text-[28px]">Joseph Chacko</div>
+              <div className="font-serif text-2xl">& Dolly Joseph</div>
             </div>
             <div className="w-[16%] relative">
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-20 bg-[#C9A84C]"></div>
               <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#8B6914] text-lg">✝</span>
             </div>
             <div className="w-[42%] text-left pl-2">
-              <div className="font-serif text-[28px]">Soniya</div>
+              <div className="font-serif text-[28px]">Sony Soy</div>
               <div className="text-[#888888] text-lg my-1">&</div>
-              <div className="font-serif text-[28px]">Family</div>
+              <div className="font-serif text-[28px]">Shyla Soy</div>
             </div>
           </div>
 
