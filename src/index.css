@@ -1,15 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-page: #F0EEF5;
-  --color-text-primary: #1A1A1A;
-  --color-accent: #4A6741;
-  --color-accent-light: #6B8C5A;
-  --color-divider: #DDDADB;
-  --color-card-bg: #FFFFFF;
-  --color-text-secondary: #888888;
-  --color-border: #E5E2E8;
-  
+  --color-bg-page: #FAF7F2;
+  --color-accent: #8B6914;
+  --color-accent-light: #C9A84C;
+  --color-divider: #E8D9B5;
+  --color-card-bg: #FFFDF8;
   --font-family-serif: 'Cormorant Garamond', serif;
-  --font-family-sans: 'Montserrat', sans-serif;
+  --font-family-display: 'Cinzel', serif;
+  --font-family-body: 'EB Garamond', serif;
+}
+
+.wedding-photo {
+  filter: sepia(20%) saturate(85%) brightness(1.06) contrast(0.93);
+  border-radius: 16px;
+  box-shadow: 0 6px 28px rgba(139, 105, 20, 0.12);
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.wedding-photo:hover {
+  transform: scale(1.015);
+  box-shadow: 0 10px 36px rgba(139, 105, 20, 0.18);
+}
+
+.photo-frame {
+  padding: 6px;
+  background: linear-gradient(135deg, #E8D9B5, #C9A84C, #E8D9B5);
+  border-radius: 18px;
+  display: inline-block;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-display {
+  font-family: 'Cinzel', serif;
+}
+
+.font-body {
+  font-family: 'EB Garamond', serif;
 }

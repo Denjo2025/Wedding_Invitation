@@ -6,14 +6,16 @@
   <title>Wedding RSVP — Admin Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root { --bg-page: #FAF7F2; --accent: #8B6914; }
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'EB Garamond', serif;
       background-color: var(--bg-page);
     }
+    .font-serif { font-family: 'Cormorant Garamond', serif; }
+    .font-display { font-family: 'Cinzel', serif; }
   </style>
 </head>
 <body class="min-h-screen py-10 px-5">
@@ -21,19 +23,19 @@
     <h1 class="font-serif text-3xl mb-2">Wedding RSVP — Admin Dashboard</h1>
     <p class="text-sm text-gray-500 mb-8">Dimal Joseph & Soniya</p>
     
-    <button onclick="fetchData()" class="float-right px-5 py-2.5 bg-[#8B6914] text-white border-none rounded-lg text-xs font-medium uppercase tracking-widest cursor-pointer hover:bg-[#C9A84C]">Refresh</button>
+    <button onclick="fetchData()" class="float-right px-5 py-2.5 bg-transparent border border-[#8B6914] text-[#8B6914] rounded-lg text-xs font-display uppercase tracking-widest cursor-pointer hover:bg-[#8B6914] hover:text-white">↻ Refresh</button>
 
     <div class="grid grid-cols-3 gap-4 mb-8">
       <div class="bg-[#FFFDF8] border border-[#E8D9B5] rounded-xl shadow-sm p-5 text-center">
-        <div class="font-serif text-4xl text-[#8B6914] mb-1" id="total-rsvps">—</div>
+        <div class="font-serif text-[48px] text-[#8B6914] mb-1" id="total-rsvps">—</div>
         <div class="text-[10px] uppercase tracking-widest text-gray-500">Total RSVPs</div>
       </div>
       <div class="bg-[#FFFDF8] border border-[#E8D9B5] rounded-xl shadow-sm p-5 text-center">
-        <div class="font-serif text-4xl text-[#8B6914] mb-1" id="total-guests">—</div>
+        <div class="font-serif text-[48px] text-[#8B6914] mb-1" id="total-guests">—</div>
         <div class="text-[10px] uppercase tracking-widest text-gray-500">Guests Attending</div>
       </div>
       <div class="bg-[#FFFDF8] border border-[#E8D9B5] rounded-xl shadow-sm p-5 text-center">
-        <div class="font-serif text-4xl text-[#8B6914] mb-1" id="declined">—</div>
+        <div class="font-serif text-[48px] text-[#8B6914] mb-1" id="declined">—</div>
         <div class="text-[10px] uppercase tracking-widest text-gray-500">Declined</div>
       </div>
     </div>
@@ -78,7 +80,7 @@
         }
 
         tableBody.innerHTML = data.rsvps.map((r, i) => `
-          <tr class="${r.attending ? 'border-l-4 border-[#8B6914]' : 'border-l-4 border-red-300'}">
+          <tr class="${r.attending ? 'border-l-4 border-[#C9A84C]' : 'border-l-4 border-[#E8AAAA]'} ${i % 2 === 0 ? 'bg-[#FFFDF8]' : 'bg-[#FAF7F2]'}">
             <td class="p-3.5 border-b border-[#E8D9B5]">${i + 1}</td>
             <td class="p-3.5 border-b border-[#E8D9B5]">${r.guestName}</td>
             <td class="p-3.5 border-b border-[#E8D9B5] ${r.attending ? 'text-[#8B6914]' : 'text-red-500'}">${r.attending ? 'Yes' : 'No'}</td>
