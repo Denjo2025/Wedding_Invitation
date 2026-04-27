@@ -60,7 +60,11 @@ function App() {
 
   const handleNo = async () => {
     setView('no')
-    await submitRSVP(guestName || 'Guest', familyName, false, 0)
+  }
+
+  const submitNoRSVP = async () => {
+    const fullName = familyName ? `${guestName} (${familyName})` : guestName
+    await submitRSVP(fullName, '', false, 0)
   }
 
   const submitRSVP = async (name, familyNameInput, attending, count) => {
@@ -251,16 +255,30 @@ function App() {
         </div>
       )}
 
-      {/* No RSVP */}
+      {/* No RSVP Modal - Ask for name when declining */}
       {view === 'no' && (
-        <section className="py-10">
-          <div className="max-w-[600px] mx-auto px-5 text-center">
-            <div className="bg-[#FFFDF8] border border-[#E8D9B5] rounded-2xl shadow-sm p-8 max-w-[400px] mx-auto">
-              <h2 className="font-serif text-[28px] italic mb-3">We'll Keep You in Our Prayers!</h2>
-              <p className="text-[#888888]">Thank you for letting us know.</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setView('rsvp')} />
+          <div className="relative bg-[#FFFDF8] border border-[#E8D9B5] rounded-2xl shadow-lg p-8 max-w-[400px] w-full">
+            <h2 className="font-serif text-[28px] italic mb-3">We'll Keep You in Our Prayers!</h2>
+            <p className="text-[#888888] mb-4">Thank you for letting us know.</p>
+            
+            <div className="text-left mb-4">
+              <label className="text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Your Name</label>
+              <input type="text" value={guestName} onChange={(e) => setGuestName(e.target.value)} placeholder="Enter your name" className="w-full p-3 border border-[#E8D9B5] rounded-lg text-sm bg-white" />
             </div>
+            
+            <div className="text-left mb-4">
+              <label className="text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Family Name (Optional)</label>
+              <input type="text" value={familyName} onChange={(e) => setFamilyName(e.target.value)} placeholder="e.g. Joseph, Family" className="w-full p-3 border border-[#E8D9B5] rounded-lg text-sm bg-white" />
+            </div>
+            
+            <button onClick={() => submitNoRSVP()} disabled={isSubmitting || !guestName.trim()} className="w-full py-4 px-6 bg-[#999999] text-white border-none rounded-xl text-[14px] font-medium uppercase tracking-widest cursor-pointer transition hover:bg-gray-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+              {isSubmitting ? 'Submitting...' : 'Confirm Decline'}
+            </button>
+            {error && <p className="text-[#cc4444] text-sm mt-3">Something went wrong. Please try again.</p>}
           </div>
-        </section>
+        </div>
       )}
 
       {/* Confirmation */}
