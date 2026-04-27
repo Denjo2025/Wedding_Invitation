@@ -62,12 +62,12 @@ function App() {
     setView('no')
   }
 
-  const submitNoRSVP = async () => {
+  const submitNoResponse = async () => {
     const fullName = familyName ? `${guestName} (${familyName})` : guestName
-    await submitRSVP(fullName, '', false, 0)
+    await submitResponse(fullName, '', false, 0)
   }
 
-  const submitRSVP = async (name, familyNameInput, attending, count) => {
+  const submitResponse = async (name, familyNameInput, attending, count) => {
     const fullName = familyNameInput ? `${name} (${familyNameInput})` : name
     const payload = { guestName: fullName, attending, familyCount: count, submittedAt: new Date().toISOString() }
     try {
@@ -79,7 +79,7 @@ function App() {
   }
 
   const handleSubmit = async () => {
-    await submitRSVP(guestName, familyName, true, familyCount)
+    await submitResponse(guestName, familyName, true, familyCount)
   }
 
   const adjustCount = (delta) => {
@@ -195,7 +195,7 @@ function App() {
         </div>
       </section>
 
-      {/* RSVP Buttons */}
+      {/* Response Buttons */}
       {view === 'rsvp' && (
         <section className="py-10 pb-24">
           <div className="max-w-[600px] mx-auto px-5 text-center">
@@ -220,7 +220,7 @@ function App() {
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setView('rsvp')} />
           <div className="relative bg-[#FFFDF8] border border-[#E8D9B5] rounded-2xl shadow-lg p-8 max-w-[400px] w-full">
             <h2 className="font-serif text-[36px] mb-2">Wonderful!</h2>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#888888] mb-6">Your RSVP Details</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#888888] mb-6">Your Response Details</p>
             
             <div className="text-left mb-4">
               <label className="text-[10px] uppercase tracking-widest text-[#888888] block mb-1">Your Name</label>
@@ -240,14 +240,14 @@ function App() {
             </div>
             <p className="text-[10px] uppercase tracking-widest text-[#888888] mb-4">Including Yourself</p>
             <button onClick={handleSubmit} disabled={isSubmitting || !guestName.trim()} className="w-full py-4 px-6 bg-[#8B6914] text-white border-none rounded-xl text-[14px] font-medium uppercase tracking-widest cursor-pointer transition hover:bg-[#C9A84C] disabled:bg-gray-400 disabled:cursor-not-allowed">
-              {isSubmitting ? 'Submitting...' : 'Submit RSVP'}
+              {isSubmitting ? 'Submitting...' : 'Submit Response'}
             </button>
             {error && <p className="text-[#cc4444] text-sm mt-3">Something went wrong. Please try again.</p>}
           </div>
         </div>
       )}
 
-      {/* No RSVP Modal - Ask for name when declining */}
+      {/* No Response Modal - Ask for name when declining */}
       {view === 'no' && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setView('rsvp')} />
@@ -265,7 +265,7 @@ function App() {
               <input type="text" value={familyName} onChange={(e) => setFamilyName(e.target.value)} placeholder="e.g. Joseph, Family" className="w-full p-3 border border-[#E8D9B5] rounded-lg text-sm bg-white" />
             </div>
             
-            <button onClick={() => submitNoRSVP()} disabled={isSubmitting || !guestName.trim()} className="w-full py-4 px-6 bg-[#999999] text-white border-none rounded-xl text-[14px] font-medium uppercase tracking-widest cursor-pointer transition hover:bg-gray-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+            <button onClick={() => submitNoResponse()} disabled={isSubmitting || !guestName.trim()} className="w-full py-4 px-6 bg-[#999999] text-white border-none rounded-xl text-[14px] font-medium uppercase tracking-widest cursor-pointer transition hover:bg-gray-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
               {isSubmitting ? 'Submitting...' : 'Confirm Decline'}
             </button>
             {error && <p className="text-[#cc4444] text-sm mt-3">Something went wrong. Please try again.</p>}
@@ -282,7 +282,7 @@ function App() {
             
             <div className="bg-[#FFFDF8] border border-[#E8D9B5] rounded-xl shadow-sm p-5 mb-6 relative">
               <span className="absolute top-2 left-3 text-[#8B6914] text-2xl">"</span>
-              <p className="font-serif italic text-lg py-4">Your RSVP has been received!<br/>We're so grateful to share this blessing with you.</p>
+              <p className="font-serif italic text-lg py-4">Your Response has been received!<br/>We're so grateful to share this blessing with you.</p>
               <span className="absolute bottom-2 right-3 text-[#8B6914] text-2xl">"</span>
             </div>
 
