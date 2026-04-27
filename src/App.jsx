@@ -157,7 +157,7 @@ function App() {
           <div className="text-center">
             <WeddingPhoto src="bride" alt="Soniya" />
             <p className="text-[10px] uppercase tracking-[0.2em] text-[#8B6914] mt-3 font-semibold">The Bride</p>
-            <p className="font-serif italic text-[22px]">Soniya</p>
+            <p className="font-serif italic text-[22px]">Soniya Soy</p>
           </div>
         </div>
       </section>
