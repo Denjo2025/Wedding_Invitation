@@ -149,14 +149,6 @@ function App() {
         </div>
       </section>
 
-      {/* Couple Photo */}
-      <section className="py-4">
-        <div className="max-w-[600px] mx-auto px-5 text-center">
-          <WeddingPhoto src="couple" alt="Dimal & Soniya" />
-          <p className="font-serif text-[14px] italic text-[#999999] mt-4">"And they lived, and loved, and built a life together."</p>
-        </div>
-      </section>
-
       {/* Individual Portrait Cards */}
       <section className="py-8">
         <div className="max-w-[420px] mx-auto px-5 flex justify-center gap-4">
@@ -312,8 +304,6 @@ function App() {
             <a href="tel:9995558877" className="block w-full py-3 border border-[#8B6914] rounded-lg text-[#1A1A1A] no-underline mb-8">
               📞 999 555 8877
             </a>
-
-            <WeddingPhoto src="couple" alt="Dimal & Soniya" className="mb-8" />
 
             <div className="mt-8">
               <p className="text-[12px] uppercase tracking-[0.25em] text-[#888888] font-semibold mb-4">Countdown to the Ceremony</p>
