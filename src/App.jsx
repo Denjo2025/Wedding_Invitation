@@ -103,7 +103,7 @@ function App() {
   const WeddingPhoto = ({ src, alt, caption, className = '' }) => (
     <div className={`photo-frame ${className}`} style={{ maxWidth: src === 'couple' ? '380px' : '180px', margin: src === 'couple' ? '40px auto' : '0 auto' }}>
       <img 
-        src={src === 'couple' ? '/couple.jpg' : src === 'groom' ? '/groom.jpg' : '/bride.jpg'} 
+        src={src === 'couple' ? '/couple.jpeg' : src === 'groom' ? '/groom.jpeg' : '/bride.jpeg'} 
         alt={alt}
         className="wedding-photo"
         style={{ aspectRatio: src === 'couple' ? '4/5' : '3/4', width: '100%' }}
