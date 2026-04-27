@@ -127,17 +127,14 @@ function App() {
 
           <div className="flex justify-center items-start gap-0 mb-7">
             <div className="w-[42%] text-right pr-2">
-              <div className="font-serif text-[28px]">Joseph Chacko</div>
-              <div className="font-serif text-2xl">& Dolly Joseph</div>
+              <div className="font-serif text-[28px]">Joseph Chacko & Dolly Joseph</div>
             </div>
             <div className="w-[16%] relative">
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-20 bg-[#C9A84C]"></div>
               <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#8B6914] text-lg">✝</span>
             </div>
             <div className="w-[42%] text-left pl-2">
-              <div className="font-serif text-[28px]">Sony Soy</div>
-              <div className="text-[#888888] text-lg my-1">&</div>
-              <div className="font-serif text-[28px]">Shyla Soy</div>
+              <div className="font-serif text-[28px]">Soy Thomas  & Shyla Soy</div>
             </div>
           </div>
 
@@ -192,6 +189,14 @@ function App() {
         <div className="max-w-[600px] mx-auto px-5 text-center">
           <p className="text-[12px] uppercase tracking-[0.25em] text-[#888888] font-semibold mb-5">Countdown to the Ceremony</p>
           {renderCountdown()}
+        </div>
+      </section>
+
+      {/* Couple Photo */}
+      <section className="py-4">
+        <div className="max-w-[600px] mx-auto px-5 text-center">
+          <WeddingPhoto src="couple" alt="Dimal & Soniya" />
+          <p className="font-serif text-[14px] italic text-[#999999] mt-4">"And they lived, and loved, and built a life together."</p>
         </div>
       </section>
 
@@ -304,8 +309,6 @@ function App() {
             <a href="tel:9995558877" className="block w-full py-3 border border-[#8B6914] rounded-lg text-[#1A1A1A] no-underline mb-8">
               📞 999 555 8877
             </a>
-
-            <WeddingPhoto src="couple" alt="Dimal & Soniya" className="mb-8" />
 
             <div className="mt-8">
               <p className="text-[12px] uppercase tracking-[0.25em] text-[#888888] font-semibold mb-4">Countdown to the Ceremony</p>
