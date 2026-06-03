@@ -11,10 +11,19 @@
   --font-family-body: 'EB Garamond', serif;
 }
 
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: #FAF7F2;
+  color: #1A1A1A;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .wedding-photo {
-  filter: sepia(20%) saturate(85%) brightness(1.06) contrast(0.93);
+  filter: sepia(16%) saturate(85%) brightness(1.04) contrast(0.94);
   border-radius: 16px;
-  box-shadow: 0 6px 28px rgba(139, 105, 20, 0.12);
+  box-shadow: 0 6px 28px rgba(139, 105, 20, 0.1);
   display: block;
   width: 100%;
   object-fit: cover;
@@ -22,15 +31,17 @@
 }
 
 .wedding-photo:hover {
-  transform: scale(1.015);
-  box-shadow: 0 10px 36px rgba(139, 105, 20, 0.18);
+  transform: scale(1.012);
+  box-shadow: 0 10px 36px rgba(139, 105, 20, 0.16);
 }
 
 .photo-frame {
-  padding: 6px;
-  background: linear-gradient(135deg, #E8D9B5, #C9A84C, #E8D9B5);
+  padding: 0;
+  background: transparent;
   border-radius: 18px;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  box-shadow: none;
 }
 
 .font-serif {
@@ -43,4 +54,35 @@
 
 .font-body {
   font-family: 'EB Garamond', serif;
+}
+
+/* Modal and fade-in animations */
+.scale-in-animation {
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.spinner {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 2px solid white;
+  width: 14px;
+  height: 14px;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

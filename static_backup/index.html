@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Dimal & Soniya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Great+Vibes&family=EB+Garamond:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-white: #FAF9F6;
+      --bg-green: #3D6B4F;
+      --bg-card: #FFFDF8;
+      --text-dark: #1A1A1A;
+      --text-white: #FFFFFF;
+      --gold: #C9A84C;
+      --light-green: #6B9E7A;
+      --divider-white: #E8D9B5;
+      --divider-green: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Cormorant Garamond", serif;
+      background: #EAE6DF;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Mobile wrapper frame to feel premium and centered */
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Common Typography classes */
+    .font-cinzel {
+      font-family: "Cinzel", serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .font-great-vibes {
+      font-family: "Great Vibes", cursive;
+    }
+
+    .font-eb-garamond {
+      font-family: "EB Garamond", serif;
+    }
+
+    /* Common Section Styles */
+    section {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Divider styling */
+    .heart-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 30px auto;
+      width: 80%;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+      position: relative;
+    }
+
+    .heart-divider::before,
+    .heart-divider::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      border-top: 1px dotted rgba(255, 255, 255, 0.4);
+    }
+
+    .heart-divider.dark {
+      color: var(--gold);
+    }
+
+    .heart-divider.dark::before,
+    .heart-divider.dark::after {
+      border-top: 1px dotted var(--divider-white);
+    }
+
+    .heart-icon {
+      font-size: 14px;
+      color: var(--gold);
+    }
+
+    .heart-divider:not(.dark) .heart-icon {
+      color: #FFFFFF;
+    }
+
+    /* ---------------- SECTION 1: HERO ---------------- */
+    .hero-section {
+      height: 100vh;
+      background: var(--bg-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 12vh;
+      position: relative;
+    }
+
+    .announcement-text {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 28px;
+      color: var(--bg-green);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      font-weight: 300;
+      z-index: 5;
+    }
+
+    .announcement-text span.heart {
+      font-size: 20px;
+      color: var(--bg-green);
+    }
+
+    .jeep-container {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      z-index: 8;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .jeep-illustration {
+      width: 90%;
+      max-width: 330px;
+      object-fit: contain;
+      animation: jeepBob 3s ease-in-out infinite;
+      filter: drop-shadow(0 12px 24px rgba(61, 107, 79, 0.18));
+    }
+
+    @keyframes jeepBob {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .hero-hills {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .hero-hills svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .flower-strip {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      object-fit: cover;
+      z-index: 7;
+    }
+
+    /* ---------------- SECTION 2: STORY ---------------- */
+    .story-section {
+      background: var(--bg-green);
+      color: var(--text-white);
+      padding: 70px 32px 100px 32px;
+      text-align: center;
+    }
+
+    .couple-names-title {
+      font-size: 42px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .couple-names-title span.ampersand {
+      font-size: 28px;
+      display: block;
+      margin: 5px 0;
+    }
+
+    .story-quote {
+      font-size: 16px;
+      line-height: 1.95;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 380px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .monogram-container {
+      margin: 30px auto 20px auto;
+    }
+
+    .monogram-text {
+      font-size: 72px;
+      line-height: 1;
+      color: var(--text-white);
+    }
+
+    .monogram-sprig {
+      width: 40px;
+      height: auto;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
+
+    .story-couple-photo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin-bottom: -180px;
+      /* Overlaps into next white section */
+      z-index: 10;
+    }
+
+    .story-couple-photo {
+      max-width: 280px;
+      width: 80%;
+      object-fit: contain;
+      filter: drop-shadow(0 -8px 20px rgba(0, 0, 0, 0.15));
+    }
+
+    /* ---------------- SECTION 3: NAMES & FAMILY ---------------- */
+    .family-section {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      padding: 70px 32px 60px 32px;
+      text-align: center;
+    }
+
+    .family-heading {
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .green-heart-icon {
+      font-size: 18px;
+      color: var(--bg-green);
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+
+    .portraits-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      max-width: 420px;
+      margin: 10px auto 40px auto;
+      padding: 0;
+    }
+
+    .portrait-card {
+      flex: 1;
+      text-align: center;
+    }
+
+    .portrait-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--bg-card);
+      border: 1px solid var(--divider-white);
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .portrait-label {
+      color: var(--gold);
+      margin-top: 10px;
+      margin-bottom: 2px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .portrait-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--text-dark);
+    }
+
+    .family-parent-info {
+      font-size: 14.5px;
+      color: #777777;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .family-person-name {
+      font-size: 46px;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin: 10px 0;
+    }
+
+    .family-ampersand {
+      font-size: 36px;
+      font-style: italic;
+      color: var(--bg-green);
+      margin: 15px 0;
+    }
+
+    .couple-line-art-container {
+      width: 100%;
+      max-width: 300px;
+      margin: 45px auto 10px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .couple-line-art {
+      width: 100%;
+      object-fit: contain;
+      opacity: 1.0;
+    }
+
+    /* ---------------- SECTION 4: SAVE THE DATE ---------------- */
+    .save-the-date-section {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      padding: 40px 32px 60px 32px;
+      text-align: center;
+    }
+
+    .save-the-date-label {
+      color: #888888;
+      margin-bottom: 25px;
+    }
+
+    .date-display-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 25px;
+    }
+
+    .date-display-val {
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+    }
+
+    .venue-church-name {
+      font-size: 24px;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-top: 15px;
+      font-weight: 400;
+    }
+
+    .venue-location {
+      font-size: 14px;
+      color: #888888;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .reception-line {
+      font-size: 13px;
+      font-style: italic;
+      color: #AAAAAA;
+      margin-top: 25px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Transition waves */
+    .wave-transition-top-green {
+      background: var(--bg-white);
+      margin-top: -2px;
+      width: 100%;
+    }
+
+    .wave-transition-top-green svg {
+      display: block;
+      width: 100%;
+      height: 60px;
+    }
+
+    /* ---------------- SECTION 5: CHURCH ---------------- */
+    .church-section {
+      background: var(--bg-green);
+      color: var(--text-white);
+      padding: 60px 0 60px 0;
+      text-align: center;
+    }
+
+    .church-illustration-container {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .church-illustration {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .church-jeep-container {
+      width: 100%;
+      max-width: 260px;
+      margin: -70px auto 40px auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .church-jeep-illustration {
+      width: 100%;
+      object-fit: contain;
+      animation: jeepBob 4s ease-in-out infinite;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+    }
+
+    .presence-text {
+      font-size: 15px;
+      line-height: 2;
+      color: rgba(255, 255, 255, 0.9);
+      padding: 0 32px;
+      max-width: 400px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ---------------- SECTION 6: BRIDAL PARTY ---------------- */
+    .bridal-party-section {
+      background: var(--bg-green);
+      color: var(--text-white);
+      padding: 20px 32px 80px 32px;
+      text-align: center;
+    }
+
+    .bridal-party-label {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 15px;
+    }
+
+    .bridal-names-list {
+      font-size: 19px;
+      font-style: italic;
+      line-height: 2;
+      margin-bottom: 45px;
+      font-weight: 300;
+    }
+
+    .action-buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .action-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50px;
+      color: white;
+      font-family: "Cinzel", serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+      text-decoration: none;
+      flex: 1 1 30%;
+      min-width: 115px;
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .action-btn .arrow {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      line-height: 1;
+      font-family: sans-serif;
+    }
+
+    /* ---------------- SECTION 7: RSVP ---------------- */
+    .rsvp-section {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      padding: 50px 32px 60px 32px;
+      text-align: center;
+    }
+
+    .rsvp-label {
+      color: #888888;
+      margin-bottom: 35px;
+    }
+
+    .rsvp-buttons-row {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .rsvp-main-btn {
+      width: 100%;
+      background: var(--bg-card);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+      border-radius: 12px;
+    }
+
+    .rsvp-main-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .rsvp-main-btn.btn-yes {
+      border: 1px solid var(--gold);
+    }
+
+    .rsvp-main-btn.btn-yes:hover {
+      background-color: #FDF8EC;
+    }
+
+    .rsvp-main-btn.btn-no {
+      border: 1px solid #E8AAAA;
+    }
+
+    .rsvp-main-btn.btn-no:hover {
+      background-color: #FDF0F0;
+    }
+
+    .rsvp-main-btn .btn-icon {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .rsvp-main-btn.btn-yes .btn-icon {
+      color: var(--bg-green);
+    }
+
+    .rsvp-main-btn.btn-no .btn-icon {
+      color: #C24141;
+    }
+
+    .rsvp-main-btn .btn-text {
+      font-size: 18px;
+      font-style: italic;
+      font-family: "Cormorant Garamond", serif;
+      color: var(--text-dark);
+    }
+
+    /* ---------------- SECTION 8: COUNTDOWN ---------------- */
+    .countdown-section {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      padding: 40px 24px 60px 24px;
+      text-align: center;
+    }
+
+    .countdown-heading {
+      font-size: 28px;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .countdown-box {
+      background: var(--bg-card);
+      border: 1px solid var(--divider-white);
+      border-radius: 10px;
+      padding: 16px 10px;
+      flex: 1;
+      min-width: 70px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .countdown-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--bg-green);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .countdown-label {
+      font-family: "Cinzel", serif;
+      font-size: 9px;
+      color: #AAAAAA;
+      letter-spacing: 0.15em;
+    }
+
+    /* ---------------- SECTION 9: FOOTER ---------------- */
+    .footer-section {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      padding: 30px 32px 50px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(232, 217, 181, 0.3);
+    }
+
+    .made-with-love-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .made-with-label {
+      color: #AAAAAA;
+      margin-bottom: 8px;
+    }
+
+    .love-script-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      height: 64px;
+    }
+
+    .love-script-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 64px;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .love-heart-svg {
+      width: 40px;
+      height: 40px;
+      margin: 0 4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .footer-dev-text {
+      color: #AAAAAA;
+      margin-bottom: 25px;
+    }
+
+    .footer-ornament {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ---------------- MODALS (RSVP YES & NO) ---------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--divider-white);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 400px;
+      padding: 35px 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      color: #888888;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 40px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      font-weight: 300;
+    }
+
+    .modal-title.italic-title {
+      font-size: 32px;
+      font-style: italic;
+    }
+
+    .modal-subtitle {
+      font-family: "Cinzel", serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #888888;
+      margin-bottom: 25px;
+    }
+
+    .modal-card {
+      text-align: left;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-label {
+      font-family: "Cinzel", serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #888888;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--divider-white);
+      border-radius: 8px;
+      font-family: "EB Garamond", serif;
+      font-size: 15px;
+      background: white;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: var(--gold);
+    }
+
+    .counter-section {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .counter-question {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .step-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+      line-height: 1;
+      color: var(--text-dark);
+    }
+
+    .step-btn:hover {
+      background-color: #F8F5EE;
+    }
+
+    .count-val {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .counter-sub {
+      font-family: "Cinzel", serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #888888;
+      margin-top: 4px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--bg-green);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      font-family: "Cinzel", serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #2F543D;
+    }
+
+    .submit-btn.secondary-btn {
+      background: #888888;
+    }
+
+    .submit-btn.secondary-btn:hover {
+      background: #666666;
+    }
+
+    .submit-btn:disabled {
+      background-color: #CCCCCC;
+      cursor: not-allowed;
+    }
+
+    .error-msg {
+      color: #CC4444;
+      font-size: 13.5px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Confetti Petals styles */
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10000;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 16px;
+      border-radius: 50% 0 50% 50%;
+      opacity: 0.9;
+      transform-origin: center;
+    }
+
+    @keyframes petalFall {
+      0% {
+        transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--r)) scale(var(--s));
+        opacity: 0;
+      }
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 2px solid white;
+      width: 16px;
+      height: 16px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Helper Utilities */
+    .hidden {
+      display: none !important;
+    }
+
+    /* ---------------- CONFIRMATION PAGE ---------------- */
+    .confirmation-flow-container {
+      text-align: center;
+    }
+
+    .conf-white-section {
+      background: var(--bg-white);
+      padding: 60px 32px;
+    }
+
+    .conf-title {
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 5px;
+    }
+
+    .conf-couple-label {
+      color: #888888;
+      margin-bottom: 30px;
+    }
+
+    .conf-quote-card {
+      background: var(--bg-card);
+      border: 1px solid var(--divider-white);
+      border-radius: 16px;
+      padding: 30px 24px;
+      max-width: 380px;
+      margin: 0 auto;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .conf-quote-card .quote-mark {
+      position: absolute;
+      color: var(--gold);
+      font-size: 28px;
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1;
+    }
+
+    .conf-quote-card .quote-left {
+      top: 10px;
+      left: 15px;
+    }
+
+    .conf-quote-card .quote-right {
+      bottom: 5px;
+      right: 15px;
+    }
+
+    .conf-quote-text {
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text-dark);
+      padding: 5px 10px;
+    }
+
+    .conf-green-section {
+      background: var(--bg-green);
+      padding: 50px 32px;
+    }
+
+    .conf-info-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      max-width: 380px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .conf-info-left {
+      flex: 1;
+      padding-right: 16px;
+    }
+
+    .conf-info-divider {
+      width: 1px;
+      height: 90px;
+      background: var(--divider-white);
+    }
+
+    .conf-info-right {
+      flex: 1;
+      padding-left: 16px;
+    }
+
+    .conf-info-label {
+      font-family: "Cinzel", serif;
+      font-size: 9px;
+      color: #888888;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+    }
+
+    .conf-info-big-date {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .conf-info-num {
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .conf-info-month {
+      font-size: 14px;
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+
+    .conf-info-text {
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .conf-location-btn {
+      font-family: "Cinzel", serif;
+      font-size: 10px;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      display: inline-block;
+      margin-top: 8px;
+      letter-spacing: 0.1em;
+      padding-bottom: 1px;
+    }
+
+    .conf-phone-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 380px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: white;
+      border-radius: 12px;
+      padding: 16px;
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      font-family: "EB Garamond", serif;
+      transition: background-color 0.2s;
+    }
+
+    .conf-phone-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .conf-couple-img {
+      max-width: 280px;
+      width: 80%;
+      margin: 40px auto 20px auto;
+      display: block;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <!-- INVITATION FLOW -->
+    <div id="invitation-flow">
+
+      <!-- SECTION 1: HERO / OPENING SCREEN -->
+      <section class="hero-section">
+        <h2 class="announcement-text">
+          <span class="heart">♥</span>
+          Happy To Announce
+          <span class="heart">♥</span>
+        </h2>
+
+        <div class="jeep-container">
+          <img src="jeep-couple.png" alt="Dimal & Soniya in Jeep" class="jeep-illustration">
+        </div>
+
+        <div class="hero-hills">
+          <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Back hill -->
+            <path d="M0,120 Q120,40 240,90 Q360,140 480,60 L480,180 L0,180 Z" fill="#4E8A63" />
+            <!-- Front hill -->
+            <path d="M0,150 Q100,80 240,120 Q380,160 480,100 L480,180 L0,180 Z" fill="#3D6B4F" />
+          </svg>
+          <img src="flower-border.png" class="flower-strip" alt="Floral Border">
+        </div>
+      </section>
+
+      <!-- SECTION 2: GREEN STORY SECTION -->
+      <section class="story-section">
+        <h1 class="couple-names-title">
+          Dimal Joseph
+          <span class="ampersand">&</span>
+          Soniya Soy
+        </h1>
+
+        <div class="heart-divider">
+          <span class="heart-icon">❤</span>
+        </div>
+
+        <p class="story-quote font-eb-garamond">
+          "A beautiful journey of love, trust, and togetherness has brought us to this special moment. With the
+          blessings of our families, we begin a new chapter — hand in hand, heart to heart."
+        </p>
+
+        <div class="heart-divider">
+          <span class="heart-icon">❤</span>
+        </div>
+
+        <div class="monogram-container">
+          <div class="monogram-text font-great-vibes">D & S</div>
+          <!-- SVG sprig illustration -->
+          <svg class="monogram-sprig" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 15 C 38 12, 30 22, 10 15 C 25 15, 35 8, 48 14 Z" fill="white" opacity="0.7" />
+            <path d="M50 15 C 62 12, 70 22, 90 15 C 75 15, 65 8, 52 14 Z" fill="white" opacity="0.7" />
+            <circle cx="50" cy="15" r="2.5" fill="white" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- SECTION 3: NAMES & FAMILY DETAILS -->
+      <section class="family-section">
+        <h2 class="family-heading">We Are Getting Married</h2>
+        <span class="green-heart-icon">💚</span>
+
+        <!-- Groom Info -->
+        <div style="margin-bottom: 25px;">
+          <div class="family-parent-info font-eb-garamond">
+            S/o Joseph Chacko & Dolly Joseph<br>
+            Chempanoda — Calicut
+          </div>
+          <h3 class="family-person-name">Dimal Joseph</h3>
+        </div>
+
+        <div class="family-ampersand">&</div>
+
+        <!-- Bride Info -->
+        <div style="margin-bottom: 30px;">
+          <h3 class="family-person-name">Soniya Soy</h3>
+          <div class="family-parent-info font-eb-garamond">
+            D/o Soy Thomas & Shyla Soy<br>
+            Chempanoda — Calicut
+          </div>
+        </div>
+
+        <div class="couple-line-art-container">
+          <img src="couple.png" alt="Dimal & Soniya Portrait" class="couple-line-art">
+        </div>
+      </section>
+
+      <!-- SECTION 4: SAVE THE DATE -->
+      <section class="save-the-date-section">
+        <div class="save-the-date-label font-cinzel">SAVE THE DATE</div>
+
+        <div class="date-display-grid">
+          <div class="date-display-val">19</div>
+          <div class="date-display-val" style="font-size: 38px; font-weight: 400; letter-spacing: 0.15em;">NOVEMBER
+          </div>
+          <div class="date-display-val">2026</div>
+        </div>
+
+        <div class="heart-divider dark">
+          <span class="heart-icon">💚</span>
+        </div>
+
+        <h4 class="venue-church-name">St. Joseph Church</h4>
+        <p class="venue-location font-eb-garamond">Chempanoda, Perambra, Calicut</p>
+        <p class="reception-line font-eb-garamond">~ Reception to follow ~</p>
+      </section>
+
+      <!-- Transition wave to Green Section -->
+      <div class="wave-transition-top-green">
+        <svg viewBox="0 0 480 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 Q240,0 480,60 L480,0 L0,0 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
+      <!-- SECTION 5: CHURCH ILLUSTRATION + PRESENCE REQUEST -->
+      <section class="church-section">
+        <p class="presence-text font-eb-garamond">
+          "We request the honor of your presence to bless the couple on this joyous occasion. Your prayers, love, and
+          blessings will make this celebration truly meaningful."
+        </p>
+
+        <div class="heart-divider">
+          <span class="heart-icon">❤</span>
+        </div>
+      </section>
+
+      <!-- SECTION 6: FAMILY & BRIDESMAIDS + ACTION BUTTONS -->
+      <section class="bridal-party-section">
+
+
+        <div class="action-buttons-container">
+          <a href="https://maps.app.goo.gl/dPBk7iywoCoFgGRv8" target="_blank" class="action-btn">
+            LOCATION <span class="arrow">→</span>
+          </a>
+          <button type="button" class="action-btn" onclick="showLiveEventAlert()">
+            LIVE EVENT <span class="arrow">→</span>
+          </button>
+          <button type="button" class="action-btn" onclick="scrollToRSVP()">
+            QUICK LINK <span class="arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Wave Transition SVG from Green to White -->
+      <div style="background:#3D6B4F; margin-bottom:-2px;">
+        <svg viewBox="0 0 480 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+          style="display:block; width:100%; height:60px;">
+          <path d="M0,0 Q240,60 480,0 L480,60 L0,60 Z" fill="#FAF9F6" />
+        </svg>
+      </div>
+
+      <!-- SECTION 7: RSVP -->
+      <section id="rsvp-anchor" class="rsvp-section">
+        <div class="rsvp-label font-cinzel">KINDLY REPLY</div>
+
+        <div class="rsvp-buttons-row">
+          <div class="rsvp-main-btn btn-yes" onclick="handleRsvpYesClick()">
+            <span class="btn-icon">✓</span>
+            <span class="btn-text">Joyfully Accepts! 🎉</span>
+          </div>
+
+          <div class="rsvp-main-btn btn-no" onclick="handleRsvpNoClick()">
+            <span class="btn-icon">×</span>
+            <span class="btn-text">Regretfully Declines</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: COUNTDOWN TO THE BIG DAY -->
+      <section class="countdown-section">
+        <h3 class="countdown-heading">Counting Down to Our Big Day</h3>
+
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <div id="cd-days" class="countdown-number">00</div>
+            <div class="countdown-label">DAYS</div>
+          </div>
+          <div class="countdown-box">
+            <div id="cd-hours" class="countdown-number">00</div>
+            <div class="countdown-label">HOURS</div>
+          </div>
+          <div class="countdown-box">
+            <div id="cd-mins" class="countdown-number">00</div>
+            <div class="countdown-label">MINUTES</div>
+          </div>
+          <div class="countdown-box">
+            <div id="cd-secs" class="countdown-number">00</div>
+            <div class="countdown-label">SECONDS</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9: FOOTER -->
+      <footer class="footer-section">
+        <div class="made-with-love-container">
+          <div class="made-with-label font-cinzel">MADE WITH</div>
+          <div class="love-script-wrapper">
+            <span class="love-script-text">l</span>
+            <!-- Red heart SVG -->
+            <svg class="love-heart-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20,35 C20,35 3,21 3,13 C3,8 7,4 12,4 C15.5,4 18.5,6 20,9 C21.5,6 24.5,4 28,4 C33,4 37,8 37,13 C37,21 20,35 20,35 Z"
+                fill="#E03C3C" />
+            </svg>
+            <span class="love-script-text">ve</span>
+          </div>
+        </div>
+
+        <div class="footer-dev-text font-cinzel">Design & Developed with ❤️</div>
+        <div class="footer-ornament">✦ ──────── ✦ ──────── ✦</div>
+      </footer>
+
+    </div>
+
+    <!-- CONFIRMATION PAGE (replaces invitation-flow on success) -->
+    <div id="confirmation-flow" class="confirmation-flow-container hidden">
+
+      <!-- Top White Section -->
+      <div class="conf-white-section">
+        <h1 class="conf-title">We're Getting Married!</h1>
+        <div class="conf-couple-label font-cinzel">Dimal & Soniya</div>
+
+        <div class="conf-quote-card">
+          <span class="quote-mark quote-left">“</span>
+          <p class="conf-quote-text font-eb-garamond">
+            Your RSVP has been received! We're so grateful to share this blessing with you.
+          </p>
+          <span class="quote-mark quote-right">”</span>
+        </div>
+      </div>
+
+      <!-- Middle Green Section -->
+      <div class="conf-green-section">
+        <div class="conf-info-card">
+          <div class="conf-info-left">
+            <div class="conf-info-label">DATE</div>
+            <div class="conf-info-big-date">
+              <span class="conf-info-num">19</span>
+              <span class="conf-info-month">/ NOV</span>
+            </div>
+            <div class="conf-info-label" style="margin-top: 12px;">TIME</div>
+            <div class="conf-info-text font-eb-garamond" style="font-weight: 500;">10:00 AM</div>
+          </div>
+
+          <div class="conf-info-divider"></div>
+
+          <div class="conf-info-right">
+            <div class="conf-info-label">VENUE</div>
+            <div class="conf-info-text font-eb-garamond" style="font-weight: 500; font-size: 15px; margin-bottom: 2px;">
+              St. Joseph Church</div>
+            <div class="conf-info-text font-eb-garamond" style="color: #666; font-size: 13px;">Chempanoda, Calicut</div>
+            <a href="https://maps.app.goo.gl/dPBk7iywoCoFgGRv8" target="_blank" class="conf-location-btn">
+              📍 CLICK FOR LOCATION
+            </a>
+          </div>
+        </div>
+
+        <a href="tel:9995558877" class="conf-phone-btn">
+          📞 999 555 8877
+        </a>
+      </div>
+
+      <!-- Bottom White Section -->
+      <div class="conf-white-section" style="padding-bottom: 80px;">
+        <img src="couple.png" alt="Dimal & Soniya Portrait" class="conf-couple-img">
+
+        <h3 class="countdown-heading" style="margin-top: 40px; margin-bottom: 20px;">Counting Down to Our Big Day</h3>
+
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <div id="conf-cd-days" class="countdown-number">00</div>
+            <div class="countdown-label">DAYS</div>
+          </div>
+          <div class="countdown-box">
+            <div id="conf-cd-hours" class="countdown-number">00</div>
+            <div class="countdown-label">HOURS</div>
+          </div>
+          <div class="countdown-box">
+            <div id="conf-cd-mins" class="countdown-number">00</div>
+            <div class="countdown-label">MINUTES</div>
+          </div>
+          <div class="countdown-box">
+            <div id="conf-cd-secs" class="countdown-number">00</div>
+            <div class="countdown-label">SECONDS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer section copy for confirmation page -->
+      <footer class="footer-section">
+        <div class="made-with-love-container">
+          <div class="made-with-label font-cinzel">MADE WITH</div>
+          <div class="love-script-wrapper">
+            <span class="love-script-text">l</span>
+            <svg class="love-heart-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20,35 C20,35 3,21 3,13 C3,8 7,4 12,4 C15.5,4 18.5,6 20,9 C21.5,6 24.5,4 28,4 C33,4 37,8 37,13 C37,21 20,35 20,35 Z"
+                fill="#E03C3C" />
+            </svg>
+            <span class="love-script-text">ve</span>
+          </div>
+        </div>
+        <div class="footer-dev-text font-cinzel">Design & Developed with ❤️</div>
+        <div class="footer-ornament">✦ ──────── ✦ ──────── ✦</div>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <!-- YES RSVP MODAL -->
+  <div id="yes-rsvp-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('yes-rsvp-modal')">&times;</button>
+      <h2 class="modal-title">Wonderful!</h2>
+      <div class="modal-subtitle">YOUR RSVP DETAILS</div>
+
+      <div class="modal-card">
+        <div class="input-group">
+          <label class="input-label">Your Name *</label>
+          <input type="text" id="guest-name" placeholder="Enter your full name">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Family Name (Optional)</label>
+          <input type="text" id="family-name" placeholder="e.g. Joseph, Family">
+        </div>
+
+        <div class="counter-section">
+          <div class="counter-question">How many family members will attend?</div>
+          <div class="stepper">
+            <button type="button" class="step-btn" onclick="adjustCount(-1)">−</button>
+            <span id="family-count-val" class="count-val">1</span>
+            <button type="button" class="step-btn" onclick="adjustCount(1)">+</button>
+          </div>
+          <div class="counter-sub">INCLUDING YOURSELF</div>
+        </div>
+
+        <button id="btn-submit-yes" class="submit-btn" onclick="submitYesRsvp()">
+          <span>SUBMIT RSVP</span>
+        </button>
+        <div id="yes-error-msg" class="error-msg hidden">Something went wrong. Please try again.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NO RSVP MODAL -->
+  <div id="no-rsvp-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('no-rsvp-modal')">&times;</button>
+      <h2 class="modal-title italic-title">We'll keep you in our prayers.</h2>
+      <div class="modal-subtitle" style="margin-bottom: 20px;">Thank you for letting us know.</div>
+
+      <div class="modal-card">
+        <div class="input-group">
+          <label class="input-label">Your Name *</label>
+          <input type="text" id="decline-guest-name" placeholder="Enter your full name">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Family Name (Optional)</label>
+          <input type="text" id="decline-family-name" placeholder="e.g. Joseph, Family">
+        </div>
+
+        <button id="btn-submit-no" class="submit-btn secondary-btn" onclick="submitNoRsvp()">
+          <span>CONFIRM DECLINE</span>
+        </button>
+        <div id="no-error-msg" class="error-msg hidden">Something went wrong. Please try again.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // App configuration
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzUbjv3o2urj8UdKqLlQVAB8KjWt539dWFAbyZDCm7MOFvM9K8hrxVkl3mGQ8wZ0ucxQg/exec";
+    const TARGET_DATE = new Date("2026-11-19T10:00:00").getTime();
+
+    let familyCount = 1;
+
+    // Stepper Count Adjust
+    function adjustCount(amount) {
+      familyCount = Math.max(1, Math.min(10, familyCount + amount));
+      document.getElementById('family-count-val').textContent = familyCount;
+    }
+
+    // Scroll to RSVP anchor
+    function scrollToRSVP() {
+      const element = document.getElementById("rsvp-anchor");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    // Show Live Event Alert
+    function showLiveEventAlert() {
+      alert("Live stream link will be shared soon");
+    }
+
+    // Modal Control functions
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    // RSVP Yes Button Action (triggers petals first, then opens modal)
+    function handleRsvpYesClick() {
+      triggerConfetti();
+      setTimeout(() => {
+        openModal('yes-rsvp-modal');
+      }, 1000);
+    }
+
+    // RSVP No Button Action
+    function handleRsvpNoClick() {
+      openModal('no-rsvp-modal');
+    }
+
+    // CONFETTI FLOW: Create 80 falling petals
+    function triggerConfetti() {
+      const container = document.createElement('div');
+      container.className = 'confetti-container';
+      document.body.appendChild(container);
+
+      const colors = ['#F5E6C8', '#E8C97A', '#C9A84C', '#FFFDF8'];
+
+      for (let i = 0; i < 80; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        // Generate scatter angles
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = 80 + Math.random() * 220; // scatter radius
+
+        // Calculate offsets
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance + 250 + Math.random() * 200; // downward drift
+        const rotation = Math.random() * 720 - 360;
+        const scale = 0.5 + Math.random() * 0.8;
+
+        petal.style.setProperty('--x', `${x}px`);
+        petal.style.setProperty('--y', `${y}px`);
+        petal.style.setProperty('--r', `${rotation}deg`);
+        petal.style.setProperty('--s', scale);
+
+        const duration = 1.6 + Math.random() * 0.9; // 1.6s to 2.5s duration
+        petal.style.animation = `petalFall ${duration}s cubic-bezier(0.1, 0.8, 0.3, 1) forwards`;
+
+        container.appendChild(petal);
+      }
+
+      // Cleanup confetti container from DOM
+      setTimeout(() => {
+        container.remove();
+      }, 3000);
+    }
+
+    // Submit RSVP Yes Function
+    async function submitYesRsvp() {
+      const nameInput = document.getElementById('guest-name');
+      const familyInput = document.getElementById('family-name');
+      const submitBtn = document.getElementById('btn-submit-yes');
+      const errorMsg = document.getElementById('yes-error-msg');
+
+      const nameVal = nameInput.value.trim();
+      const familyVal = familyInput.value.trim();
+
+      if (!nameVal) {
+        alert("Please enter your name");
+        return;
+      }
+
+      // Set loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span> <span>Submitting...</span>';
+      errorMsg.classList.add('hidden');
+
+      const fullName = familyVal ? `${nameVal} (${familyVal})` : nameVal;
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify({
+            guestName: fullName,
+            attending: true,
+            familyCount: familyCount,
+            submittedAt: new Date().toISOString()
+          })
+        });
+
+        // Hide modal and show confirmation view
+        closeModal('yes-rsvp-modal');
+        showConfirmationPage();
+      } catch (err) {
+        errorMsg.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>SUBMIT RSVP</span>';
+      }
+    }
+
+    // Submit RSVP No Function
+    async function submitNoRsvp() {
+      const nameInput = document.getElementById('decline-guest-name');
+      const familyInput = document.getElementById('decline-family-name');
+      const submitBtn = document.getElementById('btn-submit-no');
+      const errorMsg = document.getElementById('no-error-msg');
+
+      const nameVal = nameInput.value.trim();
+      const familyVal = familyInput.value.trim();
+
+      if (!nameVal) {
+        alert("Please enter your name");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span> <span>Submitting...</span>';
+      errorMsg.classList.add('hidden');
+
+      const fullName = familyVal ? `${nameVal} (${familyVal})` : nameVal;
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify({
+            guestName: fullName,
+            attending: false,
+            familyCount: 0,
+            submittedAt: new Date().toISOString()
+          })
+        });
+
+        closeModal('no-rsvp-modal');
+        showConfirmationPage();
+      } catch (err) {
+        errorMsg.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>CONFIRM DECLINE</span>';
+      }
+    }
+
+    // Show Confirmation Page DOM manipulation
+    function showConfirmationPage() {
+      document.getElementById('invitation-flow').classList.add('hidden');
+      document.getElementById('confirmation-flow').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // JS Countdown Function
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = TARGET_DATE - now;
+
+      if (diff <= 0) {
+        ["cd-days", "cd-hours", "cd-mins", "cd-secs", "conf-cd-days", "conf-cd-hours", "conf-cd-mins", "conf-cd-secs"].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = "00";
+        });
+        return;
+      }
+
+      const daysVal = String(Math.floor(diff / 86400000)).padStart(2, "0");
+      const hoursVal = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, "0");
+      const minsVal = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+      const secsVal = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+
+      // Update Invitation countdown if visible
+      const ids = {
+        "cd-days": daysVal, "cd-hours": hoursVal, "cd-mins": minsVal, "cd-secs": secsVal,
+        "conf-cd-days": daysVal, "conf-cd-hours": hoursVal, "conf-cd-mins": minsVal, "conf-cd-secs": secsVal
+      };
+
+      for (const [id, val] of Object.entries(ids)) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+
+</html>

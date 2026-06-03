@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding RSVP — Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-white: #FAF9F6;
+      --bg-green: #3D6B4F;
+      --bg-card: #FFFDF8;
+      --text-dark: #1A1A1A;
+      --text-white: #FFFFFF;
+      --gold: #C9A84C;
+      --light-green: #6B9E7A;
+      --divider-white: #E8D9B5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    .dashboard-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--divider-white);
+      padding-bottom: 20px;
+    }
+
+    .header-info h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .header-info p {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #888888;
+      margin-top: 5px;
+    }
+
+    .refresh-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: "Cinzel", serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .refresh-btn:hover {
+      background-color: var(--gold);
+      color: white;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .refresh-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--divider-white);
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--bg-green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: #888888;
+    }
+
+    /* Table styles */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--divider-white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #888888;
+      padding: 18px 24px;
+      background-color: rgba(232, 217, 181, 0.1);
+      border-bottom: 1px solid var(--divider-white);
+    }
+
+    td {
+      padding: 16px 24px;
+      font-size: 14.5px;
+      border-bottom: 1px solid rgba(232, 217, 181, 0.3);
+      color: var(--text-dark);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Row borders for Attending vs Declined */
+    .row-attending {
+      border-left: 4px solid var(--bg-green);
+    }
+
+    .row-declined {
+      border-left: 4px solid #E8AAAA;
+    }
+
+    .bg-row-even {
+      background-color: var(--bg-card);
+    }
+
+    .bg-row-odd {
+      background-color: var(--bg-white);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 40px;
+      font-size: 11.5px;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .badge-attending {
+      background-color: rgba(61, 107, 79, 0.1);
+      color: var(--bg-green);
+    }
+
+    .badge-declined {
+      background-color: rgba(232, 170, 170, 0.15);
+      color: #C24141;
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 3px solid rgba(201, 168, 76, 0.2);
+      border-radius: 50%;
+      border-top: 3px solid var(--gold);
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 40px auto;
+    }
+
+    .btn-spinner {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 2px solid currentColor;
+      width: 14px;
+      height: 14px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error-text {
+      color: #CC4444;
+      text-align: center;
+      padding: 40px;
+      font-size: 16px;
+    }
+
+    .no-data-text {
+      text-align: center;
+      padding: 40px;
+      color: #888888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    
+    <div class="header-row">
+      <div class="header-info">
+        <h1>Wedding RSVP — Admin Dashboard</h1>
+        <p>Dimal Joseph & Soniya Soy</p>
+      </div>
+      <button class="refresh-btn" id="refresh-btn" onclick="fetchData()">
+        <span id="btn-icon-container">↻</span>
+        <span>REFRESH</span>
+      </button>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" id="stat-total-rsvps">—</div>
+        <div class="stat-label">Total RSVPs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-attending">—</div>
+        <div class="stat-label">Guests Attending</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-declined">—</div>
+        <div class="stat-label">Declined</div>
+      </div>
+    </div>
+
+    <!-- RSVP Details Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Guest Name</th>
+            <th>Attending</th>
+            <th style="text-align: center;">Family Count</th>
+            <th>Submitted At</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr>
+            <td colspan="5">
+              <div class="spinner"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzUbjv3o2urj8UdKqLlQVAB8KjWt539dWFAbyZDCm7MOFvM9K8hrxVkl3mGQ8wZ0ucxQg/exec";
+    const SECRET_KEY = "wedding2026";
+
+    async function fetchData() {
+      const tableBody = document.getElementById('table-body');
+      const refreshBtn = document.getElementById('refresh-btn');
+      const btnIconContainer = document.getElementById('btn-icon-container');
+
+      // Set loading states
+      refreshBtn.disabled = true;
+      btnIconContainer.innerHTML = '<span class="btn-spinner"></span>';
+      
+      try {
+        const response = await fetch(`${APPS_SCRIPT_URL}?key=${SECRET_KEY}`);
+        if (!response.ok) throw new Error("HTTP error " + response.status);
+        const data = await response.json();
+
+        // Update statistics
+        // total RSVPs is number of responses (length of array)
+        document.getElementById('stat-total-rsvps').textContent = data.rsvps.length;
+        document.getElementById('stat-attending').textContent = data.totalGuests;
+        document.getElementById('stat-declined').textContent = data.totalDeclined;
+
+        if (!data.rsvps || data.rsvps.length === 0) {
+          tableBody.innerHTML = '<tr><td colspan="5" class="no-data-text">No RSVP responses received yet.</td></tr>';
+          return;
+        }
+
+        // Populate table
+        tableBody.innerHTML = data.rsvps.map((rsvp, index) => {
+          const isAttending = rsvp.attending;
+          const rowClass = isAttending ? 'row-attending' : 'row-declined';
+          const bgClass = index % 2 === 0 ? 'bg-row-even' : 'bg-row-odd';
+          
+          // Parse date
+          let dateStr = "—";
+          if (rsvp.submittedAt) {
+            try {
+              const d = new Date(rsvp.submittedAt);
+              dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            } catch (e) {
+              dateStr = rsvp.submittedAt;
+            }
+          }
+
+          return `
+            <tr class="${rowClass} ${bgClass}">
+              <td style="font-weight: 500;">${index + 1}</td>
+              <td style="font-weight: 500;">${rsvp.guestName}</td>
+              <td>
+                <span class="badge ${isAttending ? 'badge-attending' : 'badge-declined'}">
+                  ${isAttending ? 'Yes ✓' : 'No ×'}
+                </span>
+              </td>
+              <td style="text-align: center; font-weight: 500;">
+                ${isAttending ? rsvp.familyCount : '—'}
+              </td>
+              <td style="color: #666; font-size: 13.5px;">${dateStr}</td>
+            </tr>
+          `;
+        }).join('');
+
+      } catch (err) {
+        console.error(err);
+        tableBody.innerHTML = `<tr><td colspan="5" class="error-text">Failed to retrieve RSVP data. Please verify the API Endpoint and your connection.</td></tr>`;
+      } finally {
+        // Reset button loading state
+        refreshBtn.disabled = false;
+        btnIconContainer.innerHTML = '↻';
+      }
+    }
+
+    // Initial fetch on load
+    fetchData();
+  </script>
+</body>
+</html>
