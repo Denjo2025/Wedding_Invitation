@@ -193,10 +193,23 @@ const ThreeBackground = () => {
       }
 
       if (jeepMesh) {
+        const elapsed = clock.getElapsedTime();
+        const delay = 2.0;
+        const driveInDuration = 1.0;
         const endX = 0;
-        const targetX = 1.2 - ((1.2 - endX) * easedProgress);
+
+        let targetX;
+        if (elapsed < delay) {
+          targetX = 3.0;
+        } else {
+          const driveProgress = Math.min(1, (elapsed - delay) / driveInDuration);
+          const arrivalX = 3.0 + (1.2 - 3.0) * driveProgress;
+          const scrollTargetX = 1.2 - ((1.2 - endX) * easedProgress);
+          targetX = Math.max(arrivalX, scrollTargetX);
+        }
+
         jeepMesh.position.x = targetX;
-        jeepMesh.position.y = -1.45; // Stays firmly at the bottom
+        jeepMesh.position.y = -1.45;
         jeepMesh.position.z = 2.0;
         const hoverRotY = mouseRef.current.x * 0.18;
         jeepMesh.rotation.z = 0;
