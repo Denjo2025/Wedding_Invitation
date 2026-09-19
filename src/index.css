@@ -75,6 +75,120 @@
   --color-muted-strong: #555555;
 }
 
+
+/* Design 5 — Scroll & wax seal (aged parchment and sealing wax) */
+.theme-scroll {
+  --color-accent: #7A3B2E;
+  --color-accent-light: #B07A52;
+  --color-divider: #E0D0AE;
+  --color-card-bg: #FBF3DE;
+  --color-bg-page: #F4EAD3;
+  --color-ink: #3A2C1C;
+  --color-ink-soft: #57432C;
+  --color-muted: #8C7856;
+  --color-muted-soft: #B3A183;
+  --color-muted-strong: #6B573A;
+}
+
+/* Design 6 — Garden (sage and cream, hand-drawn botanical sprays) */
+.theme-garden {
+  --color-accent: #7C8F6B;
+  --color-accent-light: #B7C4A6;
+  --color-divider: #DCE3D2;
+  --color-card-bg: #FDFCF8;
+  --color-bg-page: #F4F6EF;
+  --color-ink: #2F3A2C;
+  --color-ink-soft: #47543F;
+  --color-muted: #8B9681;
+  --color-muted-soft: #A9B49F;
+  --color-muted-strong: #6A7561;
+}
+
+/* Design 7 — Kolam (kumkum red and marigold on ivory) */
+.theme-kolam {
+  --color-accent: #B23A22;
+  --color-accent-light: #E0A33C;
+  --color-divider: #EFD9B8;
+  --color-card-bg: #FFFBF2;
+  --color-bg-page: #FDF6E9;
+  --color-ink: #3A1F14;
+  --color-ink-soft: #56301F;
+  --color-muted: #9A7A63;
+  --color-muted-soft: #B79C87;
+  --color-muted-strong: #7A5C46;
+}
+
+/* Design 8 — Rustic boho (kraft paper, terracotta and olive) */
+.theme-boho {
+  --color-accent: #A8552F;
+  --color-accent-light: #C98A5E;
+  --color-divider: #E3D3BE;
+  --color-card-bg: #FBF6EC;
+  --color-bg-page: #F4EDE2;
+  --color-ink: #3A2E24;
+  --color-ink-soft: #55463A;
+  --color-muted: #93826C;
+  --color-muted-soft: #B09E86;
+  --color-muted-strong: #6E5F4C;
+}
+
+/* Design 9 — Indian ornate (maroon and antique gold) */
+.theme-ornate {
+  --color-accent: #8C2B3F;
+  --color-accent-light: #C9A227;
+  --color-divider: #EBD3AC;
+  --color-card-bg: #FFF9EE;
+  --color-bg-page: #FBF3E6;
+  --color-ink: #33170F;
+  --color-ink-soft: #52281C;
+  --color-muted: #96775C;
+  --color-muted-soft: #B79A7E;
+  --color-muted-strong: #6F533C;
+}
+
+/* Design 10 — Letterpress (near-black ink on warm ivory) */
+.theme-letterpress {
+  --color-accent: #2B2B2B;
+  --color-accent-light: #6B6B6B;
+  --color-divider: #D9D4CB;
+  --color-card-bg: #FFFDF8;
+  --color-bg-page: #F4F1EA;
+  --color-ink: #171717;
+  --color-ink-soft: #333333;
+  --color-muted: #8A857C;
+  --color-muted-soft: #ADA79D;
+  --color-muted-strong: #5A564E;
+}
+
+/* Design 11 — Indigo tile (indigo and soft silver, diamond lattice) */
+.theme-indigo {
+  --color-accent: #33427A;
+  --color-accent-light: #6C7BB0;
+  --color-divider: #D9DDEB;
+  --color-card-bg: #FFFDFA;
+  --color-bg-page: #F1F2F8;
+  --color-ink: #1C2242;
+  --color-ink-soft: #333A5C;
+  --color-muted: #7A82A0;
+  --color-muted-soft: #A7ADC4;
+  --color-muted-strong: #555C7C;
+}
+
+/* Design 12 — Kerala mural (ochre and deep green folk art) */
+.theme-mural {
+  --color-accent: #A9661B;
+  --color-accent-light: #C8913C;
+  --color-divider: #E2D2AC;
+  --color-card-bg: #FFFBF0;
+  --color-bg-page: #F7F0DE;
+  --color-ink: #241A10;
+  --color-ink-soft: #3D2E1C;
+  --color-muted: #8A7455;
+  --color-muted-soft: #B0A084;
+  --color-muted-strong: #66543A;
+}
+
+
 body {
   font-family: 'EB Garamond', serif;
   background-color: var(--color-bg-page, #FAF7F2);
@@ -98,15 +212,6 @@ body {
   transform: translateY(-4px);
 }
 
-.photo-frame {
-  padding: 0;
-  background: transparent;
-  border-radius: 18px;
-  display: block;
-  width: 100%;
-  box-shadow: none;
-}
-
 .font-serif {
   font-family: 'Cormorant Garamond', serif;
 }
@@ -126,6 +231,15 @@ body {
 
 .font-raleway {
   font-family: 'Raleway', sans-serif;
+}
+
+.font-script {
+  font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+}
+
+/* Slow-turning outer ring behind the kolam portrait */
+.kolam-ring {
+  animation: spin 50s linear infinite;
 }
 
 /* Scroll reveal (used on page sections) */

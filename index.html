@@ -7,19 +7,25 @@
     <title>Wedding Invitation | Dimal & Soniya</title>
     <script>
       (function () {
-        /* Each design index pairs a layout with a colour theme.
-           Designs cycle in order on every visit (0 → 1 → 2 → 3 → 0 …). */
-        var designs = ['theme-sepia', 'theme-clay', 'theme-navy', 'theme-gold'];
+        /* Each entry pairs a colour theme with its own layout.
+           Themes cycle in order on every visit (0 → 11 → 0 …). */
+        var themes = ['theme-sepia', 'theme-clay', 'theme-navy', 'theme-gold', 'theme-scroll', 'theme-garden', 'theme-kolam', 'theme-boho', 'theme-ornate', 'theme-letterpress', 'theme-indigo', 'theme-mural'];
         var i = 0;
         try {
           var prev = parseInt(localStorage.getItem('wedding-design-idx'), 10);
-          i = (isNaN(prev) ? 0 : prev + 1) % designs.length;
+          i = (isNaN(prev) ? 0 : prev + 1) % themes.length;
           localStorage.setItem('wedding-design-idx', String(i));
         } catch (e) {
           i = 0;
         }
+        /* ?design=N pins a specific design instead of cycling — handy for review. */
+        var param = new URLSearchParams(window.location.search).get('design');
+        if (param !== null && /^\d+$/.test(param)) {
+          i = parseInt(param, 10) % themes.length;
+          try { localStorage.setItem('wedding-design-idx', String(i)); } catch (e) { /* ignore */ }
+        }
         var el = document.documentElement;
-        el.classList.add(designs[i]);
+        el.classList.add(themes[i]);
         el.setAttribute('data-design', String(i));
       })();
     </script>

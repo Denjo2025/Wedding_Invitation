@@ -1,19 +1,28 @@
 import { useState, useEffect, useCallback, Fragment } from 'react';
 import confetti from 'canvas-confetti';
-import ThreeBackground from './components/ThreeBackground';
+
 import Ornament from './components/Ornament';
+import Florals from './components/Florals';
 import { wedding } from './weddingData';
 
 const APPS_SCRIPT_URL = wedding.links.rsvpEndpoint;
 const TARGET_DATE = new Date(wedding.event.iso).getTime();
 const MAPS_URL = wedding.links.maps;
 
-/* Each design reads in a different order so the four are structurally distinct. */
+/* Each design reads in a different order so the eight are structurally distinct. */
 const SECTION_ORDER = {
   0: ['hero', 'ornament', 'portrait', 'countdown', 'date', 'rsvp'],
   1: ['hero', 'portrait', 'date', 'countdown', 'rsvp'],
   2: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp'],
-  3: ['hero', 'portrait', 'date', 'countdown', 'scene', 'rsvp']
+  3: ['hero', 'portrait', 'date', 'countdown', 'rsvp'],
+  4: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp'],
+  5: ['hero', 'portrait', 'date', 'countdown', 'rsvp'],
+  6: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp'],
+  7: ['hero', 'portrait', 'date', 'countdown', 'rsvp'],
+  8: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp'],
+  9: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp'],
+  10: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp'],
+  11: ['hero', 'ornament', 'portrait', 'date', 'countdown', 'rsvp']
 };
 
 const WeddingPhoto = ({ alt, className = '' }) => (
@@ -38,6 +47,7 @@ function App() {
     const d = parseInt(document.documentElement.getAttribute('data-design') || '3', 10);
     return Number.isNaN(d) ? 3 : d;
   });
+  const designVerse = verses.byDesign[design] || verses.byDesign[3];
 
   useEffect(() => {
     const calculateCountdown = () => {
@@ -214,6 +224,134 @@ function App() {
         </section>
       );
     }
+    if (design === 4) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="font-serif italic text-[13px] text-muted mb-5">{cd.titleClassic}</p>
+          <div className="border border-accent/40 bg-card-bg px-3 py-4 max-w-[420px] mx-auto">
+            <div className="flex items-center justify-center gap-2">
+              {countdownItems.map((item, i) => (
+                <Fragment key={i}>
+                  {i > 0 && <span className="text-accent-light text-[10px]">✦</span>}
+                  <div className="text-center min-w-[48px]">
+                    <div className="font-script text-[22px] xs:text-[26px] leading-none text-accent">{formatNum(item.value)}</div>
+                    <div className="text-[8px] uppercase tracking-[0.2em] text-muted mt-1">{item.label}</div>
+                  </div>
+                </Fragment>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+    if (design === 5) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="font-serif italic text-[13px] text-muted mb-5">{cd.titleClassic}</p>
+          <div className="flex justify-center gap-2 max-w-[440px] mx-auto">
+            {countdownItems.map((item, i) => (
+              <div key={i} className="flex-1 min-w-[62px] bg-card-bg border border-divider rounded-full py-3 px-1 text-center shadow-sm">
+                <div className="font-serif text-[26px] xs:text-[30px] text-accent leading-none mb-1">{formatNum(item.value)}</div>
+                <div className="text-[8px] uppercase tracking-[0.25em] text-muted">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (design === 6) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="font-marcellus text-[11px] uppercase tracking-[0.35em] text-accent mb-5">{cd.titleClassic}</p>
+          <div className="flex justify-center gap-2 max-w-[440px] mx-auto">
+            {countdownItems.map((item, i) => (
+              <div key={i} className="flex-1 min-w-[58px] border border-dotted border-accent bg-card-bg py-3 px-1 text-center">
+                <div className="font-marcellus text-[24px] xs:text-[28px] text-accent leading-none mb-1">{formatNum(item.value)}</div>
+                <div className="text-[8px] uppercase tracking-[0.25em] text-muted">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (design === 7) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="font-script text-[22px] text-accent mb-5">{cd.titleClassic}</p>
+          <div className="flex justify-center gap-2 max-w-[440px] mx-auto">
+            {countdownItems.map((item, i) => (
+              <div key={i} className="flex-1 min-w-[58px] border border-dashed border-accent/60 bg-card-bg py-3 px-1 text-center" style={{ transform: `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)` }}>
+                <div className="font-serif text-[24px] xs:text-[28px] text-accent leading-none mb-1">{formatNum(item.value)}</div>
+                <div className="text-[8px] uppercase tracking-[0.25em] text-muted">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (design === 8) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="font-marcellus text-[11px] uppercase tracking-[0.35em] text-accent mb-5">{cd.titleClassic}</p>
+          <div className="flex justify-center gap-2 max-w-[440px] mx-auto">
+            {countdownItems.map((item, i) => (
+              <div key={i} className="flex-1 min-w-[58px] border-2 border-double border-accent-light bg-card-bg py-3 px-1 text-center rounded-t-[18px]">
+                <div className="font-marcellus text-[24px] xs:text-[28px] text-accent leading-none mb-1">{formatNum(item.value)}</div>
+                <div className="text-[8px] uppercase tracking-[0.25em] text-muted">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (design === 9) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="text-[9px] uppercase tracking-[0.5em] text-muted mb-4">{cd.titleClassic}</p>
+          <div className="max-w-[420px] mx-auto border-y-2 border-double border-ink/60 py-4">
+            <div className="flex justify-center divide-x divide-divider">
+              {countdownItems.map((item, i) => (
+                <div key={i} className="flex-1 text-center px-1">
+                  <div className="font-serif text-[26px] xs:text-[30px] leading-none text-ink">{formatNum(item.value)}</div>
+                  <div className="text-[8px] uppercase tracking-[0.3em] text-muted mt-2">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+    if (design === 10) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="text-[9px] uppercase tracking-[0.4em] text-accent-light mb-5">{cd.titleClassic}</p>
+          <div className="flex justify-center gap-2 max-w-[440px] mx-auto">
+            {countdownItems.map((item, i) => (
+              <div key={i} className="flex-1 min-w-[56px] border border-accent/40 bg-card-bg py-3 px-1 text-center">
+                <div className="w-2 h-2 rotate-45 bg-accent-light mx-auto mb-2" />
+                <div className="font-serif text-[22px] xs:text-[26px] text-accent leading-none mb-1">{formatNum(item.value)}</div>
+                <div className="text-[8px] uppercase tracking-[0.25em] text-muted">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (design === 11) {
+      return (
+        <section key="countdown" className="py-8">
+          <p className="text-[10px] uppercase tracking-[0.35em] text-accent mb-5">{cd.titleClassic}</p>
+          <div className="flex justify-center gap-2 max-w-[440px] mx-auto">
+            {countdownItems.map((item, i) => (
+              <div key={i} className="flex-1 min-w-[56px] border-x-2 border-y-4 border-accent bg-card-bg py-3 px-1 text-center">
+                <div className="font-serif text-[24px] xs:text-[28px] text-accent leading-none mb-1">{formatNum(item.value)}</div>
+                <div className="text-[8px] uppercase tracking-[0.2em] text-muted">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
     return (
       <section key="countdown" className="py-6 border-t border-b border-divider/40 my-6">
         <p className="text-[10px] xs:text-[12px] uppercase tracking-[0.2em] xs:tracking-[0.25em] text-muted font-semibold mb-5">{cd.titleClassic}</p>
@@ -256,6 +394,113 @@ function App() {
             </div>
           </div>
           <p className="font-marcellus text-[13px] uppercase tracking-[0.3em] text-accent mt-5">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 4) {
+      return (
+        <section key="portrait" className="py-6 reveal">
+          <div className="relative mx-auto w-[200px] aspect-[4/5] bg-card-bg border border-accent/40 p-2">
+            <div className="w-full h-full rounded-full overflow-hidden border border-accent/40 bg-accent/5">
+              <img src="/couple-cutout.png" alt={couple.together} className="w-full h-full object-cover object-top" />
+            </div>
+            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-8 rotate-45 bg-accent flex items-center justify-center">
+              <span className="w-3 h-3 rounded-full bg-card-bg" />
+            </span>
+          </div>
+          <p className="font-script text-[26px] text-accent mt-7">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 5) {
+      return (
+        <section key="portrait" className="py-6 reveal">
+          <div
+            className="mx-auto w-[190px] aspect-[4/5] overflow-hidden border border-accent/40 bg-accent/5"
+            style={{ borderRadius: '50% 50% 46% 46% / 60% 60% 40% 40%' }}
+          >
+            <img src="/couple-cutout.png" alt={couple.together} className="w-full h-full object-cover object-top" />
+          </div>
+          <p className="font-script text-[26px] text-accent mt-4">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 6) {
+      return (
+        <section key="portrait" className="py-6 reveal">
+          <div className="relative mx-auto w-[230px] h-[230px]">
+            <div className="absolute inset-0 rounded-full border border-dashed border-accent/50 kolam-ring" />
+            <div className="absolute inset-[10px] rounded-full border-2 border-accent/30" />
+            <div className="absolute inset-[20px] rounded-full overflow-hidden bg-accent/5">
+              <img src="/couple-cutout.png" alt={couple.together} className="w-full h-full object-contain" />
+            </div>
+          </div>
+          <p className="font-marcellus text-[13px] uppercase tracking-[0.3em] text-accent mt-5">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 7) {
+      return (
+        <section key="portrait" className="py-6 reveal">
+          <div className="mx-auto w-[210px] p-3 bg-card-bg border border-dashed border-accent/60 shadow-sm" style={{ transform: 'rotate(-2deg)' }}>
+            <img src="/couple-cutout.png" alt={couple.together} className="w-full aspect-[3/4] object-cover object-top" />
+            <p className="font-script text-[20px] text-accent mt-3">{couple.together}</p>
+          </div>
+        </section>
+      );
+    }
+    if (design === 8) {
+      return (
+        <section key="portrait" className="py-6 reveal">
+          <div className="relative mx-auto w-[220px] p-2 border border-accent-light bg-card-bg" style={{ borderRadius: '120px 120px 6px 6px' }}>
+            <div className="border-2 border-double border-accent p-1" style={{ borderRadius: '110px 110px 4px 4px' }}>
+              <div className="overflow-hidden" style={{ borderRadius: '104px 104px 3px 3px' }}>
+                <img src="/couple-cutout.png" alt={couple.together} className="w-full aspect-[3/4] object-cover object-top" />
+              </div>
+            </div>
+            <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-accent">&#10022;</span>
+          </div>
+          <p className="font-marcellus text-[13px] uppercase tracking-[0.3em] text-accent mt-5">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 9) {
+      return (
+        <section key="portrait" className="py-8 reveal">
+          <div className="mx-auto w-[200px] p-2 border-2 border-double border-ink/60">
+            <img src="/couple-cutout.png" alt={couple.together} className="w-full aspect-[3/4] object-cover object-top grayscale-[35%]" />
+          </div>
+          <p className="text-[10px] uppercase tracking-[0.45em] text-muted mt-5">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 10) {
+      return (
+        <section key="portrait" className="py-8 reveal">
+          <div className="mx-auto w-[210px] aspect-[4/5] overflow-hidden border border-accent/50 bg-accent/5" style={{ clipPath: 'polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%)' }}>
+            <img src="/couple-cutout.png" alt={couple.together} className="w-full h-full object-cover object-top" />
+          </div>
+          <div className="flex justify-center gap-1 mt-5">
+            {[0, 1, 2].map((n) => <span key={n} className="w-1.5 h-1.5 rotate-45 bg-accent-light" />)}
+          </div>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-accent mt-3">{couple.together}</p>
+        </section>
+      );
+    }
+    if (design === 11) {
+      return (
+        <section key="portrait" className="py-8 reveal">
+          <div className="mx-auto w-[220px] border-4 border-accent p-1 bg-card-bg">
+            <div className="border border-accent p-1">
+              <img src="/couple-cutout.png" alt={couple.together} className="w-full aspect-[3/4] object-cover object-top" />
+            </div>
+          </div>
+          <div className="flex justify-center gap-2 mt-5">
+            <span className="w-2 h-2 bg-accent" />
+            <span className="w-2 h-2 bg-accent-light" />
+            <span className="w-2 h-2 bg-accent" />
+          </div>
+          <p className="font-serif text-[13px] uppercase tracking-[0.3em] text-accent mt-3">{couple.together}</p>
         </section>
       );
     }
@@ -329,6 +574,140 @@ function App() {
         </section>
       );
     }
+    if (design === 4) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="relative max-w-[440px] mx-auto border-y-2 border-double border-accent/40 bg-card-bg px-6 py-7">
+            <p className="font-script text-[26px] text-accent">{event.dateLong}</p>
+            <p className="font-serif italic text-[13px] text-muted mt-2">{event.timeLabel}</p>
+            <div className="w-20 h-px bg-accent/40 mx-auto my-5" />
+            <p className="font-serif text-[16px] text-accent tracking-[0.2em] uppercase">{venue.name}</p>
+            <p className="text-[12px] text-muted mt-1">{venue.addressShort}</p>
+            {mapsLink}
+          </div>
+        </section>
+      );
+    }
+    if (design === 5) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[440px] mx-auto border border-divider bg-card-bg rounded-[28px] px-6 py-7 shadow-sm">
+            <p className="text-accent text-[12px] mb-3">❀</p>
+            <p className="font-serif text-[20px] text-ink">{event.dateLong}</p>
+            <p className="font-serif italic text-[13px] text-muted mt-1">{event.timeLabel}</p>
+            <div className="w-16 h-px bg-divider mx-auto my-4" />
+            <p className="font-serif text-[16px] text-accent tracking-[0.2em] uppercase">{venue.name}</p>
+            <p className="text-[12px] text-muted mt-1">{venue.addressShort}</p>
+            {mapsLink}
+          </div>
+        </section>
+      );
+    }
+    if (design === 6) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[460px] mx-auto border border-dotted border-accent px-5 py-7">
+            <p className="font-marcellus text-[11px] uppercase tracking-[0.3em] text-muted">{event.monthShort}</p>
+            <p className="font-marcellus text-[38px] text-accent leading-none my-1">{event.dayNum}</p>
+            <p className="font-marcellus text-[11px] uppercase tracking-[0.3em] text-muted">{event.year}</p>
+            <div className="flex items-center justify-center gap-2 my-4">
+              <span className="h-px w-12 bg-accent-light" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              <span className="h-px w-12 bg-accent-light" />
+            </div>
+            <p className="font-marcellus text-[17px] text-accent tracking-[0.15em] uppercase">{venue.name}</p>
+            <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+            <p className="font-marcellus text-[12px] uppercase tracking-[0.25em] text-ink-soft mt-2">{event.time}</p>
+            {mapsLink}
+          </div>
+        </section>
+      );
+    }
+    if (design === 7) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[440px] mx-auto border border-dashed border-accent/60 bg-card-bg px-6 py-7" style={{ transform: 'rotate(-1deg)' }}>
+            <p className="font-script text-[26px] text-accent">{event.dateLong}</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-muted mt-2">{event.time}</p>
+            <div className="border-t border-dashed border-accent/50 my-5" />
+            <p className="font-serif text-[17px] text-ink tracking-[0.15em] uppercase">{venue.name}</p>
+            <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+            {mapsLink}
+          </div>
+        </section>
+      );
+    }
+    if (design === 8) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[460px] mx-auto border-2 border-double border-accent-light bg-card-bg px-5 py-7 rounded-t-[36px]">
+            <p className="font-marcellus text-[11px] uppercase tracking-[0.3em] text-muted">{event.monthShort}</p>
+            <p className="font-marcellus text-[40px] text-accent leading-none my-1">{event.dayNum}</p>
+            <p className="font-marcellus text-[11px] uppercase tracking-[0.3em] text-muted">{event.year}</p>
+            <div className="flex items-center justify-center gap-2 my-4">
+              {[0, 1, 2, 3, 4].map((n) => (
+                <span key={n} className={n === 2 ? 'w-1.5 h-1.5 rounded-full bg-accent' : 'w-1 h-1 rounded-full bg-accent-light'} />
+              ))}
+            </div>
+            <p className="font-marcellus text-[17px] text-accent tracking-[0.15em] uppercase">{venue.name}</p>
+            <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-ink-soft mt-2">{event.time}</p>
+            {mapsLink}
+          </div>
+        </section>
+      );
+    }
+    if (design === 9) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[420px] mx-auto border-y-2 border-double border-ink/60 py-6">
+            <p className="font-serif text-[20px] xs:text-[24px] uppercase tracking-[0.14em] text-ink">{event.dateLong}</p>
+            <p className="text-[11px] uppercase tracking-[0.4em] text-muted mt-3">{event.time}</p>
+            <div className="w-16 h-[3px] bg-ink mx-auto my-5" />
+            <p className="font-serif text-[15px] uppercase tracking-[0.2em] text-accent">{venue.name}</p>
+            <p className="text-[11px] text-muted mt-1">{venue.addressShort}</p>
+          </div>
+          <div className="mt-5">{mapsLink}</div>
+        </section>
+      );
+    }
+    if (design === 10) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[440px] mx-auto border border-accent/40 p-1">
+            <div className="border border-accent/30 bg-card-bg px-5 py-6">
+              <div className="flex justify-center gap-1 mb-4">
+                {[0, 1, 2].map((n) => <span key={n} className="w-1.5 h-1.5 rotate-45 bg-accent-light" />)}
+              </div>
+              <p className="font-serif text-[22px] text-ink">{event.dateLong}</p>
+              <p className="text-[11px] uppercase tracking-[0.3em] text-accent mt-2">{event.time}</p>
+              <div className="w-20 h-px bg-accent/30 mx-auto my-5" />
+              <p className="font-serif text-[16px] text-accent tracking-[0.2em] uppercase">{venue.name}</p>
+              <p className="text-[12px] text-muted mt-1">{venue.addressShort}</p>
+              {mapsLink}
+            </div>
+          </div>
+        </section>
+      );
+    }
+    if (design === 11) {
+      return (
+        <section key="date" className="py-8 reveal">
+          <div className="max-w-[440px] mx-auto border-x-4 border-y-2 border-accent bg-card-bg px-5 py-6">
+            <p className="font-serif text-[22px] text-ink">{event.dateLong}</p>
+            <p className="font-serif text-[12px] text-muted mt-1">{event.timeLabel}</p>
+            <div className="flex items-center justify-center gap-2 my-5">
+              <span className="h-[3px] w-12 bg-accent" />
+              <span className="w-2 h-2 bg-accent-light" />
+              <span className="h-[3px] w-12 bg-accent" />
+            </div>
+            <p className="font-serif text-[16px] text-accent tracking-[0.2em] uppercase">{venue.name}</p>
+            <p className="text-[12px] text-muted mt-1">{venue.addressShort}</p>
+            {mapsLink}
+          </div>
+        </section>
+      );
+    }
     return (
       <section key="date" className="py-6 reveal">
         <div className="flex justify-center gap-2 xs:gap-3 mb-6 max-w-[420px] mx-auto w-full">
@@ -351,19 +730,6 @@ function App() {
       </section>
     );
   };
-
-  /* ---------------- THREE.JS SCENE (classic design only) ---------------- */
-
-  const renderScene = () => (
-    <section key="scene" className="py-6 reveal">
-      <div className="photo-frame" style={{ maxWidth: '400px', margin: '20px auto', height: '560px', background: 'transparent', padding: '0', borderRadius: '18px' }}>
-        <ThreeBackground />
-      </div>
-      <p className="font-serif text-[15px] italic text-accent mt-6">
-        {verses.scene}
-      </p>
-    </section>
-  );
 
   /* ---------------- RSVP (style differs per design) ---------------- */
 
@@ -401,6 +767,94 @@ function App() {
         </section>
       );
     }
+    if (design === 4) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="font-serif italic text-[14px] text-muted mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-4 max-w-[440px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] rounded-full py-4 px-6 bg-accent text-white font-script text-[18px] cursor-pointer hover:opacity-90 transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] rounded-full py-4 px-6 bg-card-bg border-2 border-accent text-accent font-script text-[18px] cursor-pointer hover:bg-accent/5 transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 5) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="font-serif italic text-[14px] text-muted mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-[440px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] rounded-full py-4 px-6 bg-accent text-white font-serif text-[13px] uppercase tracking-[0.2em] cursor-pointer hover:opacity-90 transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] rounded-full py-4 px-6 bg-card-bg border border-accent-light text-ink font-serif text-[13px] uppercase tracking-[0.2em] cursor-pointer hover:bg-accent/5 transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 6) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="font-marcellus text-[11px] uppercase tracking-[0.35em] text-accent mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-[440px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] border-2 border-accent bg-accent text-white font-marcellus text-[12px] uppercase tracking-[0.2em] py-4 px-5 cursor-pointer hover:bg-accent-light hover:border-accent-light hover:text-ink transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] border-2 border-dotted border-muted-soft text-muted font-marcellus text-[12px] uppercase tracking-[0.2em] py-4 px-5 cursor-pointer hover:text-ink hover:border-ink transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 7) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="font-script text-[24px] text-accent mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-4 max-w-[440px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] border-2 border-dashed border-accent bg-accent/10 text-ink font-serif text-[13px] uppercase tracking-[0.15em] py-4 px-5 cursor-pointer hover:bg-accent hover:text-white transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] border-2 border-dashed border-muted-soft text-muted font-serif text-[13px] uppercase tracking-[0.15em] py-4 px-5 cursor-pointer hover:text-ink hover:border-ink transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 8) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="font-marcellus text-[11px] uppercase tracking-[0.35em] text-accent mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-[460px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] rounded-t-[22px] border border-accent-light bg-accent text-white font-marcellus text-[12px] uppercase tracking-[0.2em] py-4 px-5 cursor-pointer hover:bg-ink transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] rounded-t-[22px] border border-double border-accent text-ink font-marcellus text-[12px] uppercase tracking-[0.2em] py-4 px-5 cursor-pointer hover:bg-accent-light/20 transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 9) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="text-[9px] uppercase tracking-[0.5em] text-muted mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-[420px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] bg-ink text-white text-[11px] uppercase tracking-[0.3em] py-4 px-5 cursor-pointer hover:bg-ink/85 transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] border border-ink text-ink text-[11px] uppercase tracking-[0.3em] py-4 px-5 cursor-pointer hover:bg-ink/5 transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 10) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="text-[10px] uppercase tracking-[0.35em] text-accent mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-[440px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] border border-accent bg-accent text-white text-[11px] uppercase tracking-[0.25em] py-4 px-5 cursor-pointer hover:bg-accent/90 transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] border border-accent bg-card-bg text-accent text-[11px] uppercase tracking-[0.25em] py-4 px-5 cursor-pointer hover:bg-accent/5 transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
+    if (design === 11) {
+      return (
+        <section key="rsvp" className="py-8 reveal">
+          <p className="font-serif text-[12px] uppercase tracking-[0.3em] text-accent mb-6">{rsvp.heading}</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-[460px] mx-auto">
+            <button onClick={handleYes} className="flex-1 min-w-[150px] border-x-2 border-y-4 border-accent bg-accent text-white text-[12px] uppercase tracking-[0.2em] py-4 px-5 cursor-pointer transition active:scale-[0.98]">{rsvp.accept}</button>
+            <button onClick={handleNo} className="flex-1 min-w-[150px] border-x-2 border-y-4 border-accent bg-card-bg text-accent text-[12px] uppercase tracking-[0.2em] py-4 px-5 cursor-pointer transition active:scale-[0.98]">{rsvp.decline}</button>
+          </div>
+        </section>
+      );
+    }
     return (
       <section key="rsvp" className="py-8 reveal">
         <p className="text-[10px] xs:text-[12px] uppercase tracking-[0.2em] xs:tracking-[0.25em] text-muted font-semibold mb-6">{rsvp.heading}</p>
@@ -431,7 +885,6 @@ function App() {
       portrait: renderPortrait(),
       countdown: renderCountdown(),
       date: renderDate(),
-      scene: renderScene(),
       rsvp: view === 'rsvp' ? renderRsvp() : null
     };
     const order = SECTION_ORDER[design] || SECTION_ORDER[3];
@@ -465,6 +918,87 @@ function App() {
       return (
         <div className="max-w-[600px] w-full bg-card-bg border-4 border-double border-accent p-2 shadow-2xl text-center scale-in-animation">
           <div className="border border-accent/35 px-5 py-8 xs:px-7 sm:px-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 4) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg border-y-[6px] border-double border-accent/50 text-center scale-in-animation relative">
+          <div className="px-6 xs:px-9 py-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 5) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg/95 border border-divider shadow-xl text-center scale-in-animation relative overflow-hidden">
+          <Florals />
+          <div className="relative px-6 xs:px-9 py-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 6) {
+      return (
+        <div className="max-w-[580px] w-full bg-card-bg border-2 border-accent p-1.5 shadow-2xl text-center scale-in-animation">
+          <div className="border border-dotted border-accent/50 px-5 py-8 xs:px-8 sm:px-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 7) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg/95 border-2 border-dashed border-accent/50 rounded-md shadow-lg text-center scale-in-animation relative">
+          <div className="px-6 xs:px-9 py-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 8) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg/95 border-2 border-accent-light p-1.5 shadow-2xl text-center scale-in-animation relative rounded-t-[40px]">
+          <div className="border-2 border-double border-accent/60 px-5 py-8 xs:px-8 sm:px-10 rounded-t-[34px]">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 9) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg border border-ink/70 text-center scale-in-animation">
+          <div className="border-4 border-double border-ink/30 m-1 px-5 xs:px-8 py-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 10) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg border-2 border-accent/60 p-1.5 text-center scale-in-animation">
+          <div className="border border-accent/40 px-5 xs:px-8 py-10">
+            {children}
+            {renderFooter()}
+          </div>
+        </div>
+      );
+    }
+    if (design === 11) {
+      return (
+        <div className="max-w-[600px] w-full bg-card-bg border-y-8 border-x-2 border-accent text-center scale-in-animation">
+          <div className="px-5 xs:px-8 py-10">
             {children}
             {renderFooter()}
           </div>
@@ -533,7 +1067,7 @@ function App() {
   const renderHeroTraditional = () => (
     <section className="pb-8">
       <p className="font-serif text-[12px] xs:text-[13px] text-muted italic max-w-[440px] mx-auto leading-relaxed mb-8">
-        {verses.main}<br/>{verses.mainRef}
+        {designVerse.text}<br/>{designVerse.ref}
       </p>
 
       <p className="font-serif text-[17px] xs:text-[20px] leading-tight text-ink-soft">{groomParents.names}</p>
@@ -579,8 +1113,210 @@ function App() {
 
       <p className="text-[10px] xs:text-[12px] uppercase tracking-[0.2em] xs:tracking-[0.25em] text-muted font-semibold mt-8 mb-4">{text.requestPleasure}</p>
       <p className="font-serif text-[12px] xs:text-[13px] text-muted italic max-w-[420px] mx-auto leading-relaxed">
-        {verses.classic}<br/>{verses.classicRef}
+        {designVerse.text}<br/>{designVerse.ref}
       </p>
+    </section>
+  );
+  // Design 5 — Scroll & wax seal (aged parchment, handwritten)
+  const renderHeroScroll = () => (
+    <section className="pb-8">
+      <div className="border-y-2 border-double border-accent/50 py-5 mb-6">
+        <p className="font-serif italic text-[12px] xs:text-[13px] text-muted leading-relaxed">
+          {designVerse.text}<br/>{designVerse.ref}
+        </p>
+      </div>
+      <p className="text-[10px] uppercase tracking-[0.45em] text-muted mb-4">{text.togetherFamilies}</p>
+      <h1 className="font-script text-[40px] xs:text-[54px] leading-[1.05] text-accent">{couple.groom}</h1>
+      <p className="font-serif italic text-[14px] text-muted my-1">{text.weds}</p>
+      <h1 className="font-script text-[40px] xs:text-[54px] leading-[1.05] text-accent mb-6">{couple.bride}</h1>
+      <p className="font-serif text-[15px] text-ink-soft">{groomParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{groomParents.addressInline}</p>
+      <p className="font-serif text-[15px] text-ink-soft mt-4">{brideParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{brideParents.addressInline}</p>
+      <p className="font-serif text-[16px] text-ink mt-6">{event.dateLong}</p>
+      <p className="font-serif italic text-[13px] text-muted mt-1">{event.timeLabel}</p>
+      <p className="font-serif text-[17px] text-accent tracking-widest uppercase mt-3">{venue.name}</p>
+      <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+    </section>
+  );
+
+  // Design 8 — Rustic boho (dashed rules, terracotta, hand-drawn lines)
+  const renderHeroBoho = () => (
+    <section className="pb-8">
+      <p className="font-script text-[26px] text-accent mb-1">{couple.together}</p>
+      <p className="text-[10px] uppercase tracking-[0.4em] text-muted mb-6">{text.togetherFamilies}</p>
+      <p className="font-serif italic text-[12px] xs:text-[13px] text-muted leading-relaxed mb-6">
+        {designVerse.text}<br/>{designVerse.ref}
+      </p>
+      <div className="border-t border-dashed border-accent/50 max-w-[300px] mx-auto mb-6" />
+      <h1 className="font-serif text-[34px] xs:text-[44px] leading-tight text-ink">{couple.groom}</h1>
+      <p className="font-serif text-[15px] text-ink-soft mt-1">{groomParents.namesShort}</p>
+      <p className="text-[11px] text-muted mt-1 leading-snug">{groomParents.addressInline}</p>
+      <p className="font-script text-[24px] text-accent my-4">&amp;</p>
+      <h1 className="font-serif text-[34px] xs:text-[44px] leading-tight text-ink">{couple.bride}</h1>
+      <p className="font-serif text-[15px] text-ink-soft mt-1">{brideParents.namesShort}</p>
+      <p className="text-[11px] text-muted mt-1 leading-snug">{brideParents.addressInline}</p>
+      <div className="border-t border-dashed border-accent/50 max-w-[300px] mx-auto my-6" />
+      <p className="text-[11px] uppercase tracking-[0.3em] text-ink-soft">{event.dateLong}</p>
+      <p className="text-[11px] uppercase tracking-[0.3em] text-muted mt-1">{event.timeLabel}</p>
+      <p className="font-serif text-[17px] text-accent tracking-widest uppercase mt-4">{venue.name}</p>
+      <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+    </section>
+  );
+
+  // Design 9 — Indian ornate (maroon and antique gold, temple arch)
+  const renderHeroOrnate = () => (
+    <section className="pb-8">
+      <p className="font-serif italic text-[12px] xs:text-[13px] text-muted max-w-[440px] mx-auto leading-relaxed mb-6">
+        {designVerse.text}<br/>{designVerse.ref}
+      </p>
+      <h1 className="font-marcellus text-[36px] xs:text-[44px] leading-tight text-ink">{couple.groom}</h1>
+      <p className="font-serif text-[16px] text-ink-soft mt-1">{groomParents.namesShort}</p>
+      <p className="text-[11px] tracking-wide text-muted mt-1 leading-snug">{groomParents.addressInline}</p>
+      <div className="flex items-center justify-center gap-2 my-5">
+        {[0, 1, 2].map((n) => (
+          <span key={n} className={n === 1 ? 'w-1.5 h-1.5 rounded-full bg-accent' : 'w-1.5 h-1.5 rounded-full bg-accent-light'} />
+        ))}
+      </div>
+      <h1 className="font-marcellus text-[36px] xs:text-[44px] leading-tight text-ink">{couple.bride}</h1>
+      <p className="font-serif text-[16px] text-ink-soft mt-1">{brideParents.namesShort}</p>
+      <p className="text-[11px] tracking-wide text-muted mt-1 leading-snug">{brideParents.addressInline}</p>
+      <p className="text-[11px] uppercase tracking-[0.3em] text-accent mt-7">{event.dateLong}</p>
+      <p className="text-[11px] uppercase tracking-[0.3em] text-muted mt-1">{event.time}</p>
+      <p className="font-marcellus text-[17px] text-accent tracking-[0.15em] uppercase mt-4">{venue.name}</p>
+    </section>
+  );
+
+  // Design 6 — Garden (hand-drawn florals, script names)
+  const renderHeroGarden = () => (
+    <section className="pb-8">
+      <p className="font-serif italic text-[13px] text-muted mb-5">
+        {designVerse.text}<br/>{designVerse.ref}
+      </p>
+      <p className="text-[10px] uppercase tracking-[0.4em] text-accent mb-2">{text.togetherFamilies}</p>
+      <h1 className="font-script text-[42px] xs:text-[58px] leading-[1.05] text-accent">{couple.groom}</h1>
+      <p className="font-serif italic text-[15px] text-muted my-1">{text.weds}</p>
+      <h1 className="font-script text-[42px] xs:text-[58px] leading-[1.05] text-accent mb-6">{couple.bride}</h1>
+      <p className="font-serif text-[15px] text-ink-soft">{groomParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{groomParents.addressInline}</p>
+      <p className="font-serif text-[15px] text-ink-soft mt-4">{brideParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{brideParents.addressInline}</p>
+      <div className="flex items-center justify-center gap-3 my-6">
+        <span className="h-px w-10 bg-divider" />
+        <span className="text-accent text-[12px]">❀</span>
+        <span className="h-px w-10 bg-divider" />
+      </div>
+      <p className="font-serif text-[15px] text-ink">{event.dateLong}</p>
+      <p className="font-serif text-[13px] text-muted mt-1">{event.timeLabel}</p>
+      <p className="font-serif text-[17px] text-accent tracking-widest uppercase mt-4">{venue.name}</p>
+      <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+    </section>
+  );
+
+  // Design 10 — Letterpress (ivory card, engraved rules, square corners)
+  const renderHeroLetterpress = () => (
+    <section className="pb-8">
+      <div className="max-w-[420px] mx-auto border-2 border-double border-ink/60 px-4 xs:px-8 py-8">
+        <p className="text-[9px] uppercase tracking-[0.5em] text-muted">{text.joyfullyInvite}</p>
+        <div className="w-16 h-[3px] bg-ink mx-auto my-4" />
+        <h1 className="font-serif text-[26px] xs:text-[34px] uppercase tracking-[0.16em] leading-tight text-ink">{couple.groom}</h1>
+        <p className="font-serif italic text-[13px] text-muted my-2">{text.weds}</p>
+        <h1 className="font-serif text-[26px] xs:text-[34px] uppercase tracking-[0.16em] leading-tight text-ink">{couple.bride}</h1>
+        <div className="w-16 h-[3px] bg-ink mx-auto my-4" />
+        <p className="text-[11px] uppercase tracking-[0.35em] text-accent">{event.dateLong}</p>
+        <p className="text-[11px] uppercase tracking-[0.35em] text-muted mt-1">{event.time}</p>
+        <p className="font-serif text-[15px] uppercase tracking-[0.2em] text-ink mt-4">{venue.name}</p>
+        <p className="text-[11px] text-muted mt-1">{venue.address}</p>
+      </div>
+      <p className="font-serif text-[13px] text-ink-soft mt-6">{groomParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{groomParents.addressInline}</p>
+      <p className="font-serif text-[13px] text-ink-soft mt-4">{brideParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{brideParents.addressInline}</p>
+      <div className="max-w-[420px] mx-auto mt-6 pt-4 border-t border-divider">
+        <p className="font-serif text-[12px] xs:text-[13px] text-muted italic leading-relaxed">
+          {designVerse.text}<br/>{designVerse.ref}
+        </p>
+      </div>
+    </section>
+  );
+
+  // Design 11 — Indigo tile (diamond lattice bands, indigo double rule)
+  const renderHeroIndigo = () => (
+    <section className="pb-8">
+      <div className="mx-auto max-w-[360px] border border-accent/40 p-1">
+        <div className="border border-accent/40 px-4 py-6">
+          <p className="text-[9px] uppercase tracking-[0.45em] text-accent-light mb-3">{text.togetherFamilies}</p>
+          <h1 className="font-serif text-[30px] xs:text-[40px] leading-tight text-ink">{couple.groom}</h1>
+          <p className="font-serif italic text-[14px] text-accent my-1">{text.weds}</p>
+          <h1 className="font-serif text-[30px] xs:text-[40px] leading-tight text-ink">{couple.bride}</h1>
+          <div className="flex justify-center gap-1 mt-5">
+            {[0, 1, 2, 3, 4].map((n) => <span key={n} className="w-1.5 h-1.5 rotate-45 bg-accent-light" />)}
+          </div>
+        </div>
+      </div>
+      <p className="font-serif text-[15px] text-ink-soft mt-6">{groomParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{groomParents.addressInline}</p>
+      <p className="font-serif text-[15px] text-ink-soft mt-4">{brideParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{brideParents.addressInline}</p>
+      <p className="text-[11px] uppercase tracking-[0.3em] text-accent mt-6">{event.dateLong}</p>
+      <p className="text-[11px] uppercase tracking-[0.3em] text-muted mt-1">{event.time}</p>
+      <p className="font-serif text-[17px] text-accent tracking-[0.15em] uppercase mt-4">{venue.name}</p>
+      <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+      <p className="font-serif italic text-[12px] xs:text-[13px] text-muted max-w-[420px] mx-auto leading-relaxed mt-6">
+        {designVerse.text}<br/>{designVerse.ref}
+      </p>
+    </section>
+  );
+
+  // Design 12 — Kerala mural (banded folk borders, ochre and green)
+  const renderHeroMural = () => (
+    <section className="pb-8">
+      <div className="border-y-4 border-accent py-1">
+        <div className="border-y border-accent/60 py-5">
+          <p className="text-[9px] uppercase tracking-[0.4em] text-accent mb-3">{text.joyfullyInvite}</p>
+          <h1 className="font-serif text-[30px] xs:text-[40px] leading-tight text-ink">{couple.groom}</h1>
+          <p className="font-serif text-[13px] text-accent my-1">✦</p>
+          <h1 className="font-serif text-[30px] xs:text-[40px] leading-tight text-ink">{couple.bride}</h1>
+          <div className="flex justify-center gap-2 mt-5">
+            <span className="w-2 h-2 bg-accent" />
+            <span className="w-2 h-2 bg-accent-light" />
+            <span className="w-2 h-2 bg-accent" />
+          </div>
+        </div>
+      </div>
+      <p className="font-serif text-[15px] text-ink-soft mt-6">{groomParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{groomParents.addressInline}</p>
+      <p className="font-serif text-[15px] text-ink-soft mt-4">{brideParents.names}</p>
+      <p className="text-[11px] text-muted mt-1">{brideParents.addressInline}</p>
+      <p className="font-serif text-[15px] text-ink mt-6">{event.dateLong}</p>
+      <p className="font-serif text-[12px] text-muted mt-1">{event.timeLabel}</p>
+      <p className="font-serif text-[16px] text-accent tracking-widest uppercase mt-3">{venue.name}</p>
+      <p className="text-[12px] text-muted mt-1">{venue.address}</p>
+      <p className="font-serif italic text-[12px] xs:text-[13px] text-muted max-w-[420px] mx-auto leading-relaxed mt-6">
+        {designVerse.text}<br/>{designVerse.ref}
+      </p>
+    </section>
+  );
+  // Design 7 — Kolam (marigold dots, mandala symmetry)
+  const renderHeroKolam = () => (
+    <section className="pb-8">
+      <p className="font-serif italic text-[12px] xs:text-[13px] text-muted max-w-[440px] mx-auto leading-relaxed mb-6">
+        {designVerse.text}<br/>{designVerse.ref}
+      </p>
+      <h1 className="font-marcellus text-[36px] xs:text-[44px] leading-tight text-ink">{couple.groom}</h1>
+      <p className="font-serif text-[17px] text-ink-soft mt-1">{groomParents.namesShort}</p>
+      <p className="text-[11px] tracking-wide text-muted mt-1 mb-4 leading-snug">{groomParents.addressInline}</p>
+      <div className="flex items-center justify-center gap-3 my-3">
+        <span className="h-px w-14 bg-accent-light" />
+        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+        <span className="w-1.5 h-1.5 rounded-full bg-accent-light" />
+        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+        <span className="h-px w-14 bg-accent-light" />
+      </div>
+      <h1 className="font-marcellus text-[36px] xs:text-[44px] leading-tight text-ink">{couple.bride}</h1>
+      <p className="font-serif text-[17px] text-ink-soft mt-1">{brideParents.namesShort}</p>
+      <p className="text-[11px] tracking-wide text-muted mt-1 mb-5 leading-snug">{brideParents.addressInline}</p>
+      <p className="text-[11px] uppercase tracking-[0.25em] text-accent">{text.requestPleasure}</p>
     </section>
   );
 
@@ -588,6 +1324,14 @@ function App() {
     if (design === 0) return renderHeroMinimal();
     if (design === 1) return renderHeroModern();
     if (design === 2) return renderHeroTraditional();
+    if (design === 4) return renderHeroScroll();
+    if (design === 5) return renderHeroGarden();
+    if (design === 6) return renderHeroKolam();
+    if (design === 7) return renderHeroBoho();
+    if (design === 8) return renderHeroOrnate();
+    if (design === 9) return renderHeroLetterpress();
+    if (design === 10) return renderHeroIndigo();
+    if (design === 11) return renderHeroMural();
     return renderHeroClassic();
   };
 
@@ -631,7 +1375,7 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col justify-center items-center py-12 px-4 relative z-10">
+      <div className="min-h-screen flex flex-col justify-center items-center py-6 px-4 relative z-10">
 
         {renderShell(view === 'confirmation' ? renderConfirmation() : renderBody())}
       </div>

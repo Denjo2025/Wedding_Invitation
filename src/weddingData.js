@@ -67,13 +67,22 @@ export const wedding = {
   },
 
   verses: {
-    main: '"Above all, love each other deeply, because love covers over a multitude of sins."',
-    mainRef: '— I Peter 4:8',
-    classic: '"Two are better than one... a cord of three strands is not quickly broken."',
-    classicRef: '— Ecclesiastes 4:9–12',
     modern: '"Two souls, one beautiful journey"',
-    scene: '"And they lived, and loved, and built a life together."',
-    presence: '✦ ──── In the presence of God and their loved ones ──── ✦'
+    presence: '✦ ──── In the presence of God and their loved ones ──── ✦',
+    byDesign: [
+      { text: '"This is the day the Lord has made; let us rejoice and be glad in it."', ref: '— Psalm 118:24' },
+      { text: '"Many waters cannot quench love; rivers cannot sweep it away."', ref: '— Song of Solomon 8:7' },
+      { text: '"You have made us for one another."', ref: '— Tobit 8:7' },
+      { text: '"Two are better than one... a cord of three strands is not quickly broken."', ref: '— Ecclesiastes 4:9–12' },
+      { text: '"I am my beloved\'s, and my beloved is mine."', ref: '— Song of Solomon 6:3' },
+      { text: '"The flowers appear on the earth; the time of singing has come."', ref: '— Song of Solomon 2:12' },
+      { text: '"Where you go I will go, and where you stay I will stay."', ref: '— Ruth 1:16' },
+      { text: '"Trust in the Lord with all your heart, and lean not on your own understanding."', ref: '— Proverbs 3:5' },
+      { text: '"Love is patient, love is kind. It does not envy, it does not boast."', ref: '— 1 Corinthians 13:4' },
+      { text: '"Therefore what God has joined together, let no one separate."', ref: '— Mark 10:9' },
+      { text: '"And now these three remain: faith, hope and love. But the greatest of these is love."', ref: '— 1 Corinthians 13:13' },
+      { text: '"The Lord has done great things for us, and we are filled with joy."', ref: '— Psalm 126:3' },
+    ]
   },
 
   text: {
