@@ -6,33 +6,96 @@
   --color-accent-light: #C9A84C;
   --color-divider: #E8D9B5;
   --color-card-bg: #FFFDF8;
+  --color-ink: #1A1A1A;
+  --color-ink-soft: #222222;
+  --color-muted: #888888;
+  --color-muted-soft: #999999;
+  --color-muted-strong: #555555;
   --font-family-serif: 'Cormorant Garamond', serif;
   --font-family-display: 'Cinzel', serif;
   --font-family-body: 'EB Garamond', serif;
 }
 
+/* Random design themes — one is applied to <html> on each page load.
+   Colours sampled from the reference images in the project root. */
+
+/* Design 0 — Minimal (reference A: sepia / monochrome brown) */
+.theme-sepia {
+  --color-accent: #6F5A4A;
+  --color-accent-light: #A98E7C;
+  --color-divider: #D8C7BB;
+  --color-card-bg: #FBF7F2;
+  --color-bg-page: #EFE7DF;
+  --color-ink: #2E251F;
+  --color-ink-soft: #4A3F37;
+  --color-muted: #8C7F75;
+  --color-muted-soft: #A69A90;
+  --color-muted-strong: #6B6058;
+}
+
+/* Design 1 — Modern (reference B: terracotta / clay) */
+.theme-clay {
+  --color-accent: #9A5F3F;
+  --color-accent-light: #C59E87;
+  --color-divider: #E6C3B2;
+  --color-card-bg: #FDF8F3;
+  --color-bg-page: #F5E9DE;
+  --color-ink: #3A2A1E;
+  --color-ink-soft: #5A4433;
+  --color-muted: #958067;
+  --color-muted-soft: #B09C85;
+  --color-muted-strong: #716049;
+}
+
+/* Design 2 — Traditional Kerala (reference C: navy blue) */
+.theme-navy {
+  --color-accent: #284566;
+  --color-accent-light: #6A8098;
+  --color-divider: #C3D0DF;
+  --color-card-bg: #FBFCFE;
+  --color-bg-page: #EDF2F7;
+  --color-ink: #17293D;
+  --color-ink-soft: #2E4257;
+  --color-muted: #7C8B9C;
+  --color-muted-soft: #98A6B6;
+  --color-muted-strong: #556579;
+}
+
+/* Design 3 — Classic gold (reference D: current theme) */
+.theme-gold {
+  --color-accent: #8B6914;
+  --color-accent-light: #C9A84C;
+  --color-divider: #E8D9B5;
+  --color-card-bg: #FFFDF8;
+  --color-bg-page: #FAF7F2;
+  --color-ink: #1A1A1A;
+  --color-ink-soft: #222222;
+  --color-muted: #888888;
+  --color-muted-soft: #999999;
+  --color-muted-strong: #555555;
+}
+
 body {
   font-family: 'EB Garamond', serif;
-  background-color: #FAF7F2;
+  background-color: var(--color-bg-page, #FAF7F2);
   color: #1A1A1A;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  transition: background-color 0.6s ease;
 }
 
-.wedding-photo {
-  filter: sepia(16%) saturate(85%) brightness(1.04) contrast(0.94);
-  border-radius: 16px;
-  box-shadow: 0 6px 28px rgba(139, 105, 20, 0.1);
-  display: block;
+/* Background-removed couple cutout — drop shadow follows the silhouette */
+.couple-cutout {
   width: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.18)) sepia(8%) saturate(92%) brightness(1.02);
+  transition: transform 0.4s ease;
 }
 
-.wedding-photo:hover {
-  transform: scale(1.012);
-  box-shadow: 0 10px 36px rgba(139, 105, 20, 0.16);
+.couple-cutout:hover {
+  transform: translateY(-4px);
 }
 
 .photo-frame {
@@ -48,12 +111,33 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 
-.font-display {
-  font-family: 'Cinzel', serif;
+/* Per-design typefaces */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
 }
 
-.font-body {
-  font-family: 'EB Garamond', serif;
+.font-jost {
+  font-family: 'Jost', sans-serif;
+}
+
+.font-marcellus {
+  font-family: 'Marcellus', serif;
+}
+
+.font-raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Scroll reveal (used on page sections) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* Modal and fade-in animations */

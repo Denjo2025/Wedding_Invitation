@@ -5,11 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Invitation | Dimal & Soniya</title>
+    <script>
+      (function () {
+        /* Each design index pairs a layout with a colour theme.
+           Designs cycle in order on every visit (0 → 1 → 2 → 3 → 0 …). */
+        var designs = ['theme-sepia', 'theme-clay', 'theme-navy', 'theme-gold'];
+        var i = 0;
+        try {
+          var prev = parseInt(localStorage.getItem('wedding-design-idx'), 10);
+          i = (isNaN(prev) ? 0 : prev + 1) % designs.length;
+          localStorage.setItem('wedding-design-idx', String(i));
+        } catch (e) {
+          i = 0;
+        }
+        var el = document.documentElement;
+        el.classList.add(designs[i]);
+        el.setAttribute('data-design', String(i));
+      })();
+    </script>
     
     <!-- Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Marcellus&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>
