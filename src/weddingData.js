@@ -62,8 +62,8 @@ export const wedding = {
   },
 
   host: {
-    phone: '9446641070 , 8301924243',
-    phoneDisplay: '9446641070 , 8301924243'
+    phone: ['9446641070', '8301924243'],
+    phoneDisplay: '9446641070 · 8301924243'
   },
 
   verses: {
@@ -122,7 +122,7 @@ export const wedding = {
   actions: {
     viewLocation: '📍 View Location',
     clickLocation: '📍 Click for Location',
-    callHost: '📞 CALL HOST: 9446641070 , 8301924243'
+    callHost: '📞 CALL HOST'
   },
 
   confirmation: {

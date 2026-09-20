@@ -1363,9 +1363,14 @@ function App() {
           </a>
         </div>
       </div>
-      <a href={`tel:${host.phone}`} className="w-full max-w-[500px] border border-accent hover:bg-accent/5 rounded-xl py-4 flex items-center justify-center font-serif text-ink text-[16px] tracking-wide font-medium transition mb-8 shadow-sm">
-        {actions.callHost}
-      </a>
+      <p className="text-[10px] uppercase tracking-[0.25em] text-muted font-semibold mb-3">{actions.callHost}</p>
+      <div className="w-full max-w-[500px] flex flex-col sm:flex-row gap-3 mb-8">
+        {host.phone.map((num) => (
+          <a key={num} href={`tel:${num}`} className="flex-1 border border-accent hover:bg-accent/5 rounded-xl py-3.5 flex items-center justify-center gap-2 font-serif text-ink text-[15px] tracking-wide font-medium transition shadow-sm">
+            📞 <span className="tracking-widest">{num}</span>
+          </a>
+        ))}
+      </div>
       <div className="mt-4 border-t border-divider/40 pt-8 w-full">
         <p className="text-[10px] xs:text-[12px] uppercase tracking-[0.2em] xs:tracking-[0.25em] text-muted font-semibold mb-5">{cd.titleClassic}</p>
         {countdownWidget()}
