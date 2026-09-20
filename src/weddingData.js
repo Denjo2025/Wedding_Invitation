@@ -62,8 +62,8 @@ export const wedding = {
   },
 
   host: {
-    phone: '9995558877',
-    phoneDisplay: '999 555 8877'
+    phone: '9446641070 , 8301924243',
+    phoneDisplay: '446641070 , 8301924243'
   },
 
   verses: {
