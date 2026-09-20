@@ -122,7 +122,7 @@ export const wedding = {
   actions: {
     viewLocation: '📍 View Location',
     clickLocation: '📍 Click for Location',
-    callHost: '📞 CALL HOST: 999 555 8877'
+    callHost: '📞 CALL HOST: 9446641070 , 8301924243'
   },
 
   confirmation: {
